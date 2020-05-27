@@ -1,0 +1,129 @@
+.projects-offers-container {
+    width: 100%;
+    max-width: 1480px;
+    padding: 0 30px;
+    margin: 32px auto;
+}
+
+.projects-offers-container header {
+    display: flex;
+    align-items: center;
+}
+
+.projects-offers-container header .welcome-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects-offers-container header span {
+    font-size: 25px;
+    margin-left: 8px;
+    margin-top: 0px;
+}
+
+.projects-offers-container header a {
+    width: 260px;
+    margin-left: auto;
+    background: #e02041;
+}
+
+.projects-offers-container header button {
+    height: 60px;
+    width: 60px;
+    border-radius: 4px;
+    border: 1px solid #dcdce6;
+    background: transparent;
+    margin-left: 16px;
+    transition: border-color 0.2s;
+}
+
+.projects-offers-container header button:hover {
+    border-color: #e02041;
+}
+
+.projects-offers-container h1 {
+    margin-top: 80px;
+    margin-bottom: 24px;
+}
+
+.projects-offers-container .projects-not-found {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+.projects-offers-container .projects-not-found img {
+    width: 700px;
+    height: 400px;
+}
+
+.projects-offers-container .projects-not-found h1 {
+    color: #000;
+    line-height: 21px;
+    margin-top: 5px;
+}
+
+.projects-offers-container .projects-not-found a {
+    width: 260px;
+    background-color: #e02041;
+    margin-top: 40px;
+}
+
+
+.projects-offers-container ul {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 24px;
+    list-style: none;
+}
+
+.projects-offers-container ul li {
+    background: #FFF;
+    padding: 24px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.projects-offers-container ul li strong {
+    display: block;
+    margin-top: 16px;
+    color: #41414d;
+}
+
+.projects-offers-container ul li p {
+    color: #737380;
+    line-height: 21px;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+.projects-offers-container ul li p + strong {
+    margin-top: 32px;
+}
+
+.projects-offers-container ul li a {
+    display: flex;
+    align-items: center;
+    border: 0;
+    background: #FFF;
+    color: #e02041;
+    margin-top: 10px;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.projects-offers-container ul li a h3 {
+    margin-left: 15px;
+    font-size: 20px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+ul li a h3:hover {
+    opacity: 0.7;
+}

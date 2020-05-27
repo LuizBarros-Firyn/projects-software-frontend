@@ -1,0 +1,84 @@
+.bug-report-container {
+    width: 100%;
+    max-width: 1120px;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bug-report-container .content {
+    width: 100%;
+    padding: 96px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bug-report-container .content .page-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.bug-report-container .content section {
+    width: 100%;
+    max-width: 380px;
+}
+
+.bug-report-container .content section h1 {
+    font-size: 32px;
+    margin-left: 12px;
+}
+
+.bug-report-container .content section p {
+    font-size: 18;
+    color: #737380;
+    line-height: 32px;
+}
+
+.bug-report-container .content section a span {
+    margin-left: 12px;
+}
+
+.bug-report-container .content form {
+    width: 100%;
+    max-width: 450px;
+}
+
+.bug-report-container .content form input, .bug-report-container .content form textarea {
+    margin-top: 8px;
+}
+
+.bug-report-container .content form .dropdown {
+    margin-top: 8px;
+    width: 100%;
+    height: 60px;
+    color: #333;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
+    padding: 0 24px;
+    font-size: 18px;
+}
+
+.bug-report-container .content form .error-messages {
+    margin-top: 6px;
+    width: 100%;
+    padding: 0 10px;
+    color: red;
+}
+
+.bug-report-container .content form .failed-field {
+    border-color: #e02041;
+}
+
+.bug-report-container .content form .button {
+    margin-top: 20px;
+    background-color: #e02041;
+}

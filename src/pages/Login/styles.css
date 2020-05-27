@@ -1,0 +1,99 @@
+.login-container {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container section.info {
+    display: inline-block;
+    width: 100%;
+    margin: 32px auto;
+}
+
+.login-container section.info header {
+    width: 100%;
+    padding: 30px;
+}
+
+.login-container section.info header a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 400;
+    transition: opacity 0.2s;
+    font-size: 30px;
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+}
+
+.login-container section.info header a text {
+    margin-left: 10px;
+}
+
+.login-container section.info header a:hover {
+    opacity: 0.4;
+}
+
+.login-container section.info section.info-elements .content {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px 45px;
+    border-radius: 8px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.2);
+    margin-bottom: 200px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-container section.info section.info-elements .content h1 {
+    margin-bottom: 14px;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.login-container section.info section.info-elements .content form {
+    width: 100%;
+}
+
+.login-container section.info section.info-elements .content form input {
+    margin-top: 16px;
+    padding: 0 24;
+}
+
+.login-container section.info section.info-elements .content form input.failed-field {
+    border-color: red;
+}
+
+.login-container section.info section.info-elements .content form span {
+    margin-bottom: 8px;
+    padding: 0 10px;
+}
+
+
+.login-container section.info section.info-elements .content form .error-messages {
+    width: 100%;
+    text-align: center;
+    color: red;
+    margin-top: 8px;
+}
+
+.login-container section.info section.info-elements .content form .button {
+    margin-top: 25px;
+    background-color: #e02041;
+}
+

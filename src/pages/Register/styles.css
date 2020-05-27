@@ -1,0 +1,119 @@
+.register-container {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.register-container section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-container section.info {
+    height: 100vh;
+    width: 100%;
+
+    display: inline-block;
+    margin: 32px auto;
+}
+
+.register-container section.info header {
+    width: 100%;
+    padding: 30px;
+}
+
+.register-container section.info header a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 400;
+    transition: opacity 0.2s;
+    font-size: 30px;
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+}
+
+.register-container section.info header a text {
+    margin-left: 10px;
+}
+
+.register-container section.info header a:hover {
+    opacity: 0.4;
+}
+
+.register-container section.info section.boxes {
+    width: 100%;
+    height: 100vh;
+    max-width: 1360px;
+    margin: 0 auto;
+    margin-bottom: 200px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/*
+.register-container section.info section.boxes section {
+    transition: width 0.5s, height 0.5;
+}
+
+.register-container section.info section.boxes section:hover {
+
+}
+*/
+
+.register-container section.info section.boxes .content {
+    width: 100%;
+    max-width: 700px;
+    padding: 20px 45px;
+    border-radius: 8px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.2);
+    margin-bottom: 200px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.register-container section.info section.boxes .content h1 {
+    font-size: 30px;
+    margin-bottom: 24px;
+}
+
+.register-container section.info section.boxes .content h1.client-h1 {
+    color: #e02041;
+}
+
+.register-container section.info section.boxes .content h1.freelancer-h1 {
+    color: #0dc6ff;
+}
+
+.register-container section.info section.boxes .content .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-container section.info section.boxes .content .item h3 {
+    font-size: 18px;
+    color: #686873;
+    line-height: 64px;
+    margin-left: 8px;
+    font-weight: 500;
+}
+
+.register-container section.info section.boxes .content a.btn-client {
+    background-color: #e02041;
+}
+
+.register-container section.info section.boxes .content a.btn-freelancer {
+    background-color: #0dc6ff;
+}

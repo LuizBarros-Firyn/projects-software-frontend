@@ -1,0 +1,108 @@
+.about-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.about-container section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container section.logo {
+    padding: 30px;
+    display: inline-block;
+    width: 50%;
+}
+
+.about-container header {
+    width: fit-content;
+}
+
+.about-container header a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 400;
+    transition: opacity 0.2s;
+    font-size: 30px;
+
+    display: flex;
+    align-items: center;
+}
+
+.about-container section.logo a:hover {
+    opacity: 0.4;
+}
+
+.about-container section.logo header a text {
+    margin-left: 10px;
+}
+
+.about-container section.logo .logo-style {
+    display: flex;
+    align-items: center;
+}
+
+.about-container section.logo .logo-style strong {
+    font-weight: bold;
+    font-size: 80px;
+    color: #000;
+    letter-spacing: 10px;
+}
+
+.about-container section.info {
+    display: inline-block;
+    width: 50%;
+    margin: 32px auto;
+    background: #222224;
+}
+
+.about-container section.info section.info-elements {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 80px;
+    text-align: justify;
+    color: #FFF;
+}
+
+.about-container section.info section.info-elements strong {
+    width: 100%;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.about-container section.info section.info-elements p {
+    margin-top: 70px;
+    max-width: 600px;
+    font-size: 20px;
+    font-weight: 400;
+    margin-right: auto;
+}
+
+.about-container section.info section.info-elements text {
+    width: 100%;
+}
+
+.about-container section.info section.info-elements text.company-email {
+    margin-top: 100px;
+}
+
+.about-container section.info section.info-elements .social-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.about-container section.info section.info-elements .social-media svg + svg {
+    margin-left: 20px;
+}

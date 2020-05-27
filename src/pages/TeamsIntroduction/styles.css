@@ -1,0 +1,81 @@
+.teams-introduction-container {
+    width: 100%;
+    max-width: 1480px;
+    padding: 0 30px;
+    margin: 32px auto;
+}
+
+.teams-introduction-container header {
+    display: flex;
+    align-items: center;
+}
+
+.teams-introduction-container header .welcome-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teams-introduction-container header span {
+    font-size: 25px;
+    margin-left: 8px;
+    margin-top: 0px;
+}
+
+.teams-introduction-container header button {
+    height: 60px;
+    width: 60px;
+    border-radius: 4px;
+    border: 1px solid #dcdce6;
+    background: transparent;
+    margin-left: auto;
+    transition: border-color 0.2s;
+}
+
+.teams-introduction-container header button:hover {
+    border-color: #e02041;
+}
+
+.teams-introduction-container .sections {
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teams-introduction-container .sections section.intro h1 {
+    font-size: 42px;
+    margin-bottom: 50px;
+    margin-left: 25px;
+}
+
+.teams-introduction-container .sections section.intro img {
+    size: 80%;
+}
+
+.teams-introduction-container .sections section.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.teams-introduction-container .sections section.info p {
+    font-size: 18px;
+    color: #43434a;
+    line-height: 32px;
+    margin-bottom: 150px;
+}
+
+.teams-introduction-container .sections section.info a {
+    width: 260px;
+    background-color: #e02041;
+}
+
+.teams-introduction-container .sections section.info a + a {
+    margin-top: 24px;
+}

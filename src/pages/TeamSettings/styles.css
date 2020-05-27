@@ -1,0 +1,138 @@
+.team-settings-container {
+    width: 100%;
+    max-width: 1480px;
+    padding: 0 30px;
+    margin: 32px auto;
+}
+
+.team-settings-container header {
+    display: flex;
+    align-items: center;
+}
+
+.team-settings-container header .welcome-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-settings-container header span {
+    font-size: 25px;
+    margin-left: 8px;
+    margin-top: 0px;
+}
+
+.team-settings-container header a {
+    width: 260px;
+    margin-left: auto;
+    background: #e02041;
+}
+
+.team-settings-container header button {
+    height: 60px;
+    width: 60px;
+    border-radius: 4px;
+    border: 1px solid #dcdce6;
+    background: transparent;
+    margin-left: 16px;
+    transition: border-color 0.2s;
+}
+
+.team-settings-container header button:hover {
+    border-color: #e02041;
+}
+
+.team-settings-container .content {
+    width: 100%;
+    max-width: 1120px;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-settings-container .content .content-elements {
+    width: 100%;
+    padding: 96px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.07);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.team-settings-container .content .content-elements .page-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.team-settings-container .content .content-elements section {
+    width: 100%;
+    max-width: 380px;
+}
+
+.team-settings-container .content .content-elements section h1 {
+    font-size: 32px;
+    margin-left: 12px;
+}
+
+.team-settings-container .content .content-elements section p {
+    font-size: 18;
+    color: #737380;
+    line-height: 32px;
+}
+
+.team-settings-container .content .content-elements section a {
+    width: fit-content;
+    transition: 0.3s;
+}
+
+.team-settings-container .content .content-elements section a:hover {
+    opacity: 0.7;
+}
+
+.team-settings-container .content .content-elements section a span {
+    margin-left: 12px;
+}
+
+.team-settings-container .content .content-elements form {
+    width: 100%;
+    max-width: 450px;
+}
+
+.team-settings-container .content .content-elements form input, .team-settings-container .content .content-elements form textarea {
+    margin-top: 8px;
+}
+
+.team-settings-container .content form .dropdown {
+    margin-top: 8px;
+    width: 100%;
+    height: 60px;
+    color: #333;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
+    padding: 0 24px;
+    font-size: 18px;
+}
+
+.team-settings-container .content .content-elements form .error-messages {
+    margin-top: 6px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 0 10px;
+    color: red;
+}
+
+.team-settings-container .content .content-elements form .failed-field {
+    border-color: #e02041;
+}
+
+.team-settings-container .content .content-elements form .button {
+    margin-top: 20px;
+    background-color: #e02041;
+}

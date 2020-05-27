@@ -1,0 +1,113 @@
+.client-main-container {
+    width: 100%;
+    max-width: 1480px;
+    padding: 0 30px;
+    margin: 32px auto;
+}
+
+.client-main-container header {
+    display: flex;
+    align-items: center;
+}
+
+.client-main-container header .welcome-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.client-main-container header span {
+    font-size: 25px;
+    margin-left: 8px;
+    margin-top: 0px;
+}
+
+.client-main-container header .features {
+    margin-left: auto;
+}
+
+.client-main-container header .features a {
+    width: 260px;
+    background: #e02041;
+}
+
+.client-main-container header .features a + a {
+    margin-left: 20px;
+}
+
+.client-main-container header button {
+    height: 60px;
+    width: 60px;
+    border-radius: 4px;
+    border: 1px solid #dcdce6;
+    background: transparent;
+    margin-left: 16px;
+    transition: border-color 0.2s;
+}
+
+.client-main-container header button:hover {
+    border-color: #e02041;
+}
+
+.client-main-container h1 {
+    margin-top: 80px;
+    margin-bottom: 24px;
+}
+
+.client-main-container .projects-not-found {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+.client-main-container .projects-not-found img {
+    width: 700px;
+    height: 400px;
+}
+
+.client-main-container .projects-not-found h1 {
+    color: #000;
+    line-height: 21px;
+    margin-top: 5px;
+}
+
+.client-main-container .projects-not-found a {
+    width: 260px;
+    background-color: #e02041;
+    margin-top: 40px;
+}
+
+.client-main-container ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+    list-style: none;
+}
+
+.client-main-container ul li {
+    background: #FFF;
+    padding: 24px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.client-main-container ul li strong {
+    display: block;
+    margin-top: 16px;
+    color: #41414d;
+}
+
+.client-main-container ul li p {
+    color: #737380;
+    line-height: 21px;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+.client-main-container ul li p + strong {
+    margin-top: 32px;
+}

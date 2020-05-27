@@ -1,0 +1,109 @@
+.freelancer-register-container {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.freelancer-register-container section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.freelancer-register-container section.info {
+    display: inline-block;
+    width: 100%;
+    margin: 32px auto;
+}
+
+.freelancer-register-container section.info header {
+    width: 100%;
+    padding: 30px;
+}
+
+.freelancer-register-container section.info header a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 400;
+    transition: opacity 0.2s;
+    font-size: 30px;
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+}
+
+.freelancer-register-container section.info header a text {
+    margin-left: 10px;
+}
+
+.freelancer-register-container section.info header a:hover {
+    opacity: 0.4;
+}
+
+.freelancer-register-container section.info section.info-elements .content {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px 45px;
+    border-radius: 8px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.2);
+    margin-bottom: 200px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.freelancer-register-container section.info section.info-elements .content h1 {
+    margin-bottom: 14px;
+    color: #0dc6ff;
+    font-size: 35px;
+}
+
+.freelancer-register-container section.info section.info-elements .content form {
+    width: 100%;
+}
+
+.freelancer-register-container section.info section.info-elements .content form input {
+    margin-top: 16px;
+    padding: 0 24;
+}
+
+.freelancer-register-container section.info section.info-elements .content form input.failed-field {
+    border-color: red;
+}
+
+.freelancer-register-container section.info section.info-elements .content form span {
+    margin-bottom: 8px;
+    padding: 0 10px;
+}
+
+.freelancer-register-container section.info section.info-elements .content form .input-group {
+    display: flex;
+}
+
+.freelancer-register-container section.info section.info-elements .content form .error-messages {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    color: red;
+    margin-bottom: 0 auto;
+}
+
+.freelancer-register-container section.info section.info-elements .content form .input-group input + input {
+    margin-left: 8px;
+}
+
+.freelancer-register-container section.info section.info-elements .content form .button {
+    margin-top: 25px;
+    background-color: #0dc6ff;
+}
+

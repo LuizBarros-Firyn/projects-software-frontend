@@ -1,0 +1,78 @@
+.create-team-container {
+    width: 100%;
+    max-width: 1120px;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-team-container .content {
+    width: 100%;
+    padding: 96px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create-team-container .content .page-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.create-team-container .content section {
+    width: 100%;
+    max-width: 380px;
+}
+
+.create-team-container .content section h1 {
+    font-size: 32px;
+    margin-left: 12px;
+}
+
+.create-team-container .content section p {
+    font-size: 18;
+    color: #737380;
+    line-height: 32px;
+}
+
+.create-team-container .content section a {
+    width: fit-content;
+    transition: 0.3s;
+}
+
+.create-team-container .content section a:hover {
+    opacity: 0.7;
+}
+
+.create-team-container .content section a span {
+    margin-left: 12px;
+}
+
+.create-team-container .content form {
+    width: 100%;
+    max-width: 450px;
+}
+
+.create-team-container .content form input, .create-team-container .content form textarea {
+    margin-top: 8px;
+}
+
+.create-team-container .content form .error-messages {
+    margin-top: 6px;
+    width: 100%;
+    padding: 0 10px;
+    color: red;
+}
+
+.create-team-container .content form .button {
+    margin-top: 20px;
+    background-color: #e02041;
+}

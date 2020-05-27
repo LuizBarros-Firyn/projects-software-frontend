@@ -1,0 +1,132 @@
+.team-container {
+    width: 100%;
+    max-width: 1480px;
+    padding: 0 30px;
+    margin: 32px auto;
+}
+
+.team-container header {
+    display: flex;
+    align-items: center;
+}
+
+.team-container header .welcome-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-container header span {
+    font-size: 25px;
+    margin-left: 8px;
+    margin-top: 0px;
+}
+
+.team-container header .features {
+    margin-left: auto;
+}
+
+.team-container header .features a {
+    width: 260px;
+    background: #e02041;
+}
+
+.team-container header .features button {
+    width: 260px;
+    background: #e02041;
+}
+
+.team-container header .features a, .team-container header .features button {
+    margin-left: 20px;
+}
+
+.team-container header button.logout {
+    height: 60px;
+    width: 60px;
+    border-radius: 4px;
+    border: 1px solid #dcdce6;
+    background: transparent;
+    margin-left: 16px;
+    transition: border-color 0.2s;
+}
+
+.team-container header button.logout:hover {
+    border-color: #e02041;
+}
+
+.team-container h1 {
+    margin-top: 30px;
+    margin-bottom: 24px;
+}
+
+.team-container .chat-container .messages {
+    padding: 20px;
+    background: #FFF;
+    border-radius: 12px;
+    height: 550px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.team-container .chat-container .new-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.team-container .chat-container .new-message input {
+    width: 100%;
+    height: 60px;
+    color: #333;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
+    padding: 0 24px;
+}
+
+.team-container .chat-container .new-message button {
+    margin-left: 10px;
+    width: 150px;
+}
+
+.team-container ul {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 24px;
+    list-style: none;
+}
+
+.team-container ul li {
+    position: relative;
+}
+
+.team-container ul li .session-user-messages {
+    padding: 12px;
+    background-color: rgba(47, 173, 116, 0.2);
+    border-radius: 6px;
+    text-align: justify;
+    margin-left: auto;
+    width: fit-content;
+    max-width: 70%;
+}
+
+.team-container ul li .interlocutors-messages {
+    padding: 12px;
+    background-color: rgba(224, 32, 65, 0.1);
+    border-radius: 6px;
+    text-align: justify;
+    width: fit-content;
+    max-width: 70%;
+}
+
+.team-container ul li strong {
+    display: block;
+    color: #41414d;
+}
+
+.team-container ul li p {
+    color: #737380;
+    line-height: 21px;
+    font-size: 16px;
+    margin-top: 12px;
+}

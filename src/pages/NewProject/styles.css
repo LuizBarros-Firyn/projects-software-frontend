@@ -1,0 +1,82 @@
+.new-project-container {
+    width: 100%;
+    max-width: 1120px;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.new-project-container .content {
+    width: 100%;
+    padding: 96px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-project-container .content .page-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.new-project-container .content section {
+    width: 100%;
+    max-width: 380px;
+}
+
+.new-project-container .content section h1 {
+    font-size: 32px;
+    margin-left: 12px;
+}
+
+.new-project-container .content section p {
+    font-size: 18;
+    color: #737380;
+    line-height: 32px;
+}
+
+.new-project-container .content section a {
+    width: fit-content;
+    transition: 0.5s;
+}
+
+.new-project-container .content section a:hover {
+    filter: opacity(70%);
+}
+
+.new-project-container .content section a span {
+    margin-left: 12px;
+}
+
+.new-project-container .content form {
+    width: 100%;
+    max-width: 450px;
+}
+
+.new-project-container .content form input, .new-project-container .content form textarea {
+    margin-top: 8px;
+}
+
+.new-project-container .content form .error-messages {
+    margin-top: 6px;
+    width: 100%;
+    padding: 0 10px;
+    color: red;
+}
+
+.new-project-container .content form .failed-field {
+    border-color: #e02041;
+}
+
+.new-project-container .content form .button {
+    margin-top: 20px;
+    background-color: #e02041;
+}
