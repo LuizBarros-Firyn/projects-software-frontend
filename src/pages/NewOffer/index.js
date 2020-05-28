@@ -24,7 +24,7 @@ export default function NewOffer() {
             alert('Acesso não autorizado.');
             history.push('/login');
         }
-    });
+    }, [userSession.user_is_freelancer, userIsAuthenticated, history]);
     
     async function handleNewOffer(values) {
         const data = {

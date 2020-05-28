@@ -23,7 +23,8 @@ export default function CreateTeam() {
             alert('Acesso não autorizado.');
             history.push('/login');
         }
-    });
+        console.log('a');
+    }, [history, userIsAuthenticated, userSession.user_is_freelancer]);
     
     async function handleCreateTeam(values) {
 

@@ -21,7 +21,7 @@ export default function NewProject() {
             alert('Acesso não autorizado.');
             history.push('/login');
         }
-    });
+    }, [userSession.user_is_freelancer, userIsAuthenticated, history]);
     
     async function handleNewProject(values) {
         const data = {

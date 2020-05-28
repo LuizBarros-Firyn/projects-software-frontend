@@ -16,7 +16,7 @@ export default function TeamsIntroduction() {
         if (userSession.user_has_team || !userIsAuthenticated) {
             history.push('/team');
         }
-    });
+    }, [userSession.user_has_team, userIsAuthenticated, history]);
 
     function handleLogout() {
         localStorage.clear();

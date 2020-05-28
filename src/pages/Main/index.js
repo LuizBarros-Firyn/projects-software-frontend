@@ -18,8 +18,6 @@ export default function Main() {
             alert('Acesso não autorizado.');
             history.push('/login');
         }
-        
-        console.log(userSession);
     }, [history, userIsAuthenticated, userSession]);
 
     if (!userIsAuthenticated){
