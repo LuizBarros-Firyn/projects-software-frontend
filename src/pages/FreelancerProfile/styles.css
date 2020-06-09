@@ -1,0 +1,183 @@
+.freelancer-profile-container {
+    width: 100%;
+    max-width: 1480px;
+    padding: 0 30px;
+    margin: 32px auto;
+}
+
+.freelancer-profile-container header {
+    display: flex;
+    align-items: center;
+}
+
+.freelancer-profile-container header .welcome-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.freelancer-profile-container header span {
+    font-size: 25px;
+    margin-left: 8px;
+    margin-top: 0px;
+}
+
+.freelancer-profile-container header a {
+    width: 260px;
+    margin-left: auto;
+    background: #e02041;
+}
+
+.freelancer-profile-container header a + a {
+    margin-left: 15px;
+}
+
+.freelancer-profile-container header button {
+    height: 60px;
+    width: 60px;
+    border-radius: 4px;
+    border: 1px solid #dcdce6;
+    background: transparent;
+    margin-left: 16px;
+    transition: border-color 0.2s;
+}
+
+.freelancer-profile-container header button:hover {
+    border-color: #e02041;
+}
+
+.freelancer-profile-container .content {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.freelancer-profile-container .content .user-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 60px;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.freelancer-profile-container .content .user-info img {
+    width: 200px;
+    height: 200px;
+}
+
+.freelancer-profile-container .content .user-info img.has-own-photo {
+    border-radius: 50%;
+}
+
+.freelancer-profile-container .content .user-info .texts h1 {
+    margin-left: 16px;
+}
+
+.freelancer-profile-container .content .user-info .texts p {
+    font-size: 24px;
+    color: #737380;
+    line-height: 32px;
+    margin-left: 16px;
+    margin-top: 16px;
+    filter: brightness(70%);
+}
+
+.freelancer-profile-container .content .user-info .texts p + h1 {
+    margin-top: 30px;
+}
+
+.freelancer-profile-container .content .user-info .texts p.freelancer-techs-div {
+    line-height: 50px;
+    margin-bottom: 10px;
+}
+
+.freelancer-profile-container .content .user-info .texts p span {
+    padding: 7px;
+    border-radius: 6px;
+    background-color: rgba(47, 173, 116, 0.2);
+    margin-right: 10px;
+}
+
+.freelancer-profile-container .content .comments-not-found {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.freelancer-profile-container .content .comments-not-found img {
+    width: 600px;
+    height: 200px;
+}
+
+.freelancer-profile-container .content .comments-not-found h1 {
+    color: #000;
+    line-height: 21px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.freelancer-profile-container .content .comments ul {
+    list-style: none;
+    height: 300px;
+    overflow-y: auto;
+    margin-bottom: 5px;
+}
+
+.freelancer-profile-container .content .comments ul:empty {
+    height: 0px;
+}
+
+.freelancer-profile-container .content .comments .comment {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.freelancer-profile-container .content .comments .comment img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.freelancer-profile-container .content .comments .comment .texts h3 {
+    margin-left: 16px;
+}
+
+.freelancer-profile-container .content .comments .comment .texts p {
+    font-size: 18px;
+    color: #737380;
+    line-height: 32px;
+    margin-left: 16px;
+    filter: brightness(70%);
+    margin-bottom: 10px;
+}
+
+.freelancer-profile-container .content .new-comment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.freelancer-profile-container .content .new-comment input {
+    width: 100%;
+    height: 60px;
+    color: #333;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
+    padding: 0 24px;
+}
+
+.freelancer-profile-container .content .new-comment button {
+    margin-left: 10px;
+    width: 150px;
+}

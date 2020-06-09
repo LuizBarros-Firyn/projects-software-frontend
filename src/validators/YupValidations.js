@@ -5,11 +5,9 @@ export function clientRegisterValidation() {
     const schema = Yup.object().shape({
         firstName: Yup.string().min(2, "Nome inválido").max(50, "Nome inválido").required("Nome obrigatório"),
         lastName: Yup.string().min(2, "Sobrenome inválido").max(50, "Sobrenome inválido").required("Sobrenome obrigatório"),
-        login: Yup.string().min(5, "Login muito curto").max(30, "Login muito longo").required("Login obrigatório"),
         password: Yup.string().min(5, "Senha muito curta").max(30, "Senha muito longa").required("Senha obrigatória"),
         age: Yup.number("Idade inválidade").moreThan(17, "Apenas maiores de idade").lessThan(120, "Idade inválida").required("Idade obrigatória"),
         email: Yup.string().min(6, "O e-mail precisa ter mais de 6 carácteres").max(90, "E-mail inválido").email("E-mail inválido").required("O e-mail é obrigatório"),
-        cnpj: Yup.string().min(11, "Documento inválido").max(16, "Documento inválido").required("Documento obrigatório"),
         companyName: Yup.string().min(2, "Negócio inválido").max(80, "Negócio inválido").required("Campo obrigatório"),
         city: Yup.string().min(2, "Cidade inválida").max(60, "Cidade inválida").required("Cidade obrigatória"),
         uf: Yup.string().min(2, "UF inválido").max(2, "UF inválido").required("UF obrigatório"),
@@ -22,11 +20,9 @@ export function freelancerRegisterValidation() {
     const schema = Yup.object().shape({
         firstName: Yup.string().min(2, "Nome inválido").max(50, "Nome inválido").required("Nome obrigatório"),
         lastName: Yup.string().min(2, "Sobrenome inválido").max(50, "Sobrenome inválido").required("Sobrenome obrigatório"),
-        login: Yup.string().min(5, "Login muito curto").max(30, "Login muito longo").required("Login obrigatório"),
         password: Yup.string().min(5, "Senha muito curta").max(30, "Senha muito longa").required("Senha obrigatória"),
         age: Yup.number("Idade inválidade").moreThan(18, "Apenas maiores de idade").lessThan(120, "Idade inválida").required("Idade obrigatória"),
         email: Yup.string().min(6, "O e-mail precisa ter mais de 6 carácteres").max(90, "E-mail inválido").email("E-mail inválido").required("O e-mail é obrigatório"),
-        cpf: Yup.string().min(11, "Documento inválido").max(14, "Documento inválido").required("Documento obrigatório"),
         city: Yup.string().min(2, "Cidade inválida").max(60, "Cidade inválida").required("Cidade obrigatória"),
         uf: Yup.string().min(2, "UF inválido").max(2, "UF inválido").required("UF obrigatório"),
         techs: Yup.string().max(120, "Tecnologias inválidas").required("Tecnologias obrigatórias")
@@ -37,7 +33,7 @@ export function freelancerRegisterValidation() {
 
 export function loginValidation() {
     const schema = Yup.object().shape({
-        login: Yup.string().min(5, "Login inválido").max(30, "Login inválido").required("Login obrigatório"),
+        email: Yup.string().min(6, "O e-mail precisa ter mais de 6 carácteres").max(90, "E-mail inválido").email("E-mail inválido").required("O e-mail é obrigatório"),
         password: Yup.string().min(5, "Senha inválida").max(30, "Senha inválida").required("Senha obrigatória")
     });
 
@@ -85,6 +81,18 @@ export function bugReportValidation() {
     const schema = Yup.object().shape({
         description: Yup.string().min(10, "Por favor, forneça mais detalhes").max(500, "Por favor, descreva o erro de forma mais específica").required("A descrição do erro é obrigatória"),
         found_error_page: Yup.string().min(3, "Página inválida").max(30, "Página inválida").required("A página do erro é obrigatória")
+    });
+
+    return schema;
+};
+
+export function profileSettingsValidation() {
+    const schema = Yup.object().shape({
+        name: Yup.string().min(5, "Nome inválido").max(50, "Nome inválido").required("Nome obrigatório"),
+        description: Yup.string().min(30, "Forneça uma descrição mais detalhada").max(400, "Forneça uma descrição mais direta").required("A descrição é obrigatória"),
+        city: Yup.string().min(2, "Cidade inválida").max(60, "Cidade inválida").required("Cidade obrigatória"),
+        uf: Yup.string().min(2, "UF inválido").max(2, "UF inválido").required("UF obrigatório"),
+        techs: Yup.string().max(120, "Tecnologias inválidas").required("Tecnologias obrigatórias"),
     });
 
     return schema;

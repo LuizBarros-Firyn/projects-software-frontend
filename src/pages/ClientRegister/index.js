@@ -16,13 +16,11 @@ export default function ClientRegister() {
     async function handleClientRegister(values){
         const data = {
             name: values.firstName.trim() + " " + values.lastName.trim(),
-            login: values.login,
             password: values.password,
             age: values.age,
             phone: '',
             email: values.email,
             photo: '',
-            person_identifier: values.cnpj,
             company_name: values.companyName,   
             city: values.city,
             uf: values.uf,
@@ -31,15 +29,20 @@ export default function ClientRegister() {
 
         try {
             await api.post('users', data).then(response => {
+                if (response.data.fail_message){
+                    alert(response.data.fail_message);
+                    return;
+                }
+
                 const userSession = { user_id: response.data._id, user_name: response.data.name, user_is_freelancer: response.data.is_freelancer }
     
                 localStorage.setItem('userSession', JSON.stringify(userSession));
                 localStorage.setItem('userIsAuthenticated', true);
     
                 alert(`Seja bem vindo, ${response.data.name}`);
-            });
 
-            history.push('/main'); 
+                history.push('/main'); 
+            });
         } catch (error) {
             alert('Erro no cadastro, tente novamente.');
         }
@@ -79,32 +82,22 @@ export default function ClientRegister() {
                                             </div>
                                         </div>
                                         <div className="input-group">
-                                            <Field placeholder="Login" name="login" className={errors.login && touched.login && "failed-field"} />                       
-                                            <Field placeholder="Senha" name="password" type="password" className={errors.password && touched.password && "failed-field"} />
+                                            <Field placeholder="Email" name="email" type="email" className={errors.email && touched.email && "failed-field"} />
                                         </div>
                                         <div className="error-messages">
-                                            <div className="left-field-error">
-                                                <ErrorMessage component="span" name="login" />
-                                            </div>
-                                            <div className="right-field-error">
-                                                <ErrorMessage component="span" name="password" />
-                                            </div>
+                                            <ErrorMessage component="span" name="email" />
                                         </div>
                                         <div className="input-group">
+                                            <Field placeholder="Senha" name="password" type="password" className={errors.password && touched.password && "failed-field"} />
                                             <Field placeholder="Idade" style={{ width: 120 }} name="age" className={errors.age && touched.age && "failed-field"} />
-                                            <Field placeholder="E-mail" name="email" className={errors.email && touched.email && "failed-field"} />
                                         </div>
                                         <div className="error-messages">
                                             <div className="left-field-error">
-                                                <ErrorMessage component="span" name="age" />
+                                                <ErrorMessage component="span" name="password" />
                                             </div>
                                             <div className="right-field-error">
-                                                <ErrorMessage component="span" name="email" />
+                                                <ErrorMessage component="span" name="age" />
                                             </div>
-                                        </div>
-                                        <Field placeholder="Documento de identificação (CPF/CNPJ)" name="cnpj" className={errors.cnpj && touched.cnpj && "failed-field"} />
-                                        <div className="error-messages">
-                                            <ErrorMessage component="span" name="cnpj" />
                                         </div>
                                         <Field placeholder="Nome do seu negócio" name="companyName" className={errors.companyName && touched.companyName && "failed-field"} />
                                         <div className="error-messages">

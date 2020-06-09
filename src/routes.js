@@ -21,6 +21,8 @@ import Teams from './pages/Teams';
 import Team from './pages/Team';
 import TeamJoiningSolicitation from './pages/TeamJoiningSolicitation';
 import JoiningSolicitationsReview from './pages/JoiningSolicitationsReview';
+import FreelancerProfile from './pages/FreelancerProfile';
+import ProfileSettings from './pages/ProfileSettings';
 
 export default function Routes() {
     return(
@@ -46,6 +48,8 @@ export default function Routes() {
                 <Route path="/team" component={Team} />
                 <Route path="/team_joining_solicitation" component={TeamJoiningSolicitation} />
                 <Route path="/joining_solicitations_review" component={JoiningSolicitationsReview} />
+                <Route path="/freelancer_profile/:user_id" component={FreelancerProfile} />
+                <Route path="/profile_settings" component={ProfileSettings} />
             </Switch>
         </BrowserRouter>
     );

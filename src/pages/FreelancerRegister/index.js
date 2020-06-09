@@ -22,7 +22,6 @@ export default function FreelancerRegister() {
             phone: '',
             email: values.email,
             photo: '',
-            person_identifier: values.cpf,
             city: values.city,
             uf: values.uf,
             is_freelancer: true,
@@ -101,10 +100,6 @@ export default function FreelancerRegister() {
                                             <div className="right-field-error">
                                                 <ErrorMessage component="span" name="email" />
                                             </div>
-                                        </div>
-                                        <Field placeholder="CPF" name="cpf" className={errors.cpf && touched.cpf && "failed-field"} />
-                                        <div className="error-messages">
-                                            <ErrorMessage component="span" name="cpf" />
                                         </div>
                                         <div className="input-group">
                                             <Field placeholder="Cidade" name="city" className={errors.city && touched.city && "failed-field"} />

@@ -87,14 +87,18 @@ export default function Team() {
                                 { teamMessage.sender._id === userSession.user_id ?
                                     <Fragment>
                                         <div className="session-user-messages">
-                                            <strong>{teamMessage.sender.name}</strong>
+                                            <Link to={`/freelancer_profile/${teamMessage.sender._id}`}>
+                                                <strong>{teamMessage.sender.name}</strong>
+                                            </Link>
                                             <p>{teamMessage.message}</p>
                                         </div>
                                     </Fragment>
                                 :
                                     <Fragment>
                                         <div className="interlocutors-messages">
+                                        <Link to={`/freelancer_profile/${teamMessage.sender._id}`}>
                                             <strong>{teamMessage.sender.name}</strong>
+                                        </Link>
                                             <p>{teamMessage.message}</p>
                                         </div>
                                     </Fragment>            

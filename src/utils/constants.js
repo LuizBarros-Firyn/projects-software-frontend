@@ -59,3 +59,11 @@ export const teamJoiningSolicitationInitialValues = {
 export const bugReportInitialValues = {
     "description": "",
 };
+
+export const profileSettingsInitialValues = {
+    "name": "",
+    "description": "",
+    "city": "",
+    "uf": "",
+    "techs": "",
+};

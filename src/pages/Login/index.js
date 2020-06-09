@@ -15,7 +15,7 @@ export default function Login() {
 
     async function handleLogin(values){
         const data = {
-            login: values.login,
+            email: values.email,
             password: values.password
         };
 
@@ -57,9 +57,9 @@ export default function Login() {
 
                                 return(
                                     <Form autoComplete="off">
-                                        <Field placeholder="Login" name="login" className={errors.login && touched.login && "failed-field"} />
+                                        <Field placeholder="Email" name="email" className={errors.email && touched.email && "failed-field"} />
                                         <div className="error-messages">
-                                            <ErrorMessage component="span" name="login" />
+                                            <ErrorMessage component="span" name="email" />
                                         </div>
                                         <Field placeholder="Senha" name="password" type="password" className={errors.password && touched.password && "failed-field"} />
                                         <div className="error-messages">

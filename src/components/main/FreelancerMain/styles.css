@@ -33,7 +33,16 @@
     background: #e02041;
 }
 
+.freelancer-main-container header .features button {
+    width: 260px;
+    background: #e02041;
+}
+
 .freelancer-main-container header .features a + a {
+    margin-left: 20px;
+}
+
+.freelancer-main-container header .features div + a {
     margin-left: 20px;
 }
 
@@ -102,7 +111,7 @@
     flex-direction: column;
 }
 
-.freelancer-main-container header button {
+.freelancer-main-container header button.logout {
     height: 60px;
     width: 60px;
     border-radius: 4px;

@@ -24,12 +24,10 @@ export default function ProjectDevelopment() {
         
         async function fetchPageData() {
             await api.get(`ongoing_projects/${projectId}`, {
-                headers:
-                    {
+                headers: {
                         request_owner: userSession.user_is_freelancer ? userSession.user_team_id : userSession.user_id
-                    }            
-                }   
-            ).then(response => {
+                }            
+            }).then(response => {
                 setProject(response.data);
             });
     

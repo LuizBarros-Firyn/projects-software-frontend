@@ -58,9 +58,9 @@ export default function FreelancerMain() {
                     {isUserTeamOwner ?
                         <Fragment>
                             <div className="dropdown">
-                                <Link className="button button-dropdown">
+                                <button className="button button-dropdown">
                                     Equipe <FiChevronDown size={20} color="#000"/>
-                                </Link>
+                                </button>
                                 <ul className="dropdown-options">
                                     <li>
                                         <Link to="/team">
@@ -77,11 +77,6 @@ export default function FreelancerMain() {
                                             Solicitações de entrada
                                         </Link>
                                     </li>
-                                    <li>
-                                        <Link>
-                                            Membros da equipe
-                                        </Link>
-                                    </li>
                                 </ul>
                             </div>
                         </Fragment>
@@ -90,8 +85,9 @@ export default function FreelancerMain() {
                             Equipe
                         </Link>
                     }
+                    <Link className="button" to={`/freelancer_profile/${userSession.user_id}`}>Meu perfil</Link>
                 </div>
-                <button onClick={handleLogout} type="button">
+                <button onClick={handleLogout} className="logout" type="button">
                     <FiPower size={18} color="#E02041" />
                 </button>
             </header>

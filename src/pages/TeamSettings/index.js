@@ -41,7 +41,6 @@ export default function TeamSettings() {
             setTeam(response.data);
             setIsHiring(response.data.is_hiring)
         });
-
     }, [userIsAuthenticated, userSession.user_team_id, userSession.user_has_team, userSession.user_id, history]);
 
     function handleLogout() {
