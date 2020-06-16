@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import { FiTerminal } from 'react-icons/fi';
+import { FiTerminal, FiPower } from 'react-icons/fi';
 import profile from '../../assets/profile.svg'
 
 import './styles.css';
@@ -19,12 +19,18 @@ export default function OnboardingSteps() {
         }
     }, [history, userIsAuthenticated, userSession]);
 
+    function handleLogout() {
+        localStorage.clear();
+
+        history.push('/');
+    }
+
     return (
         <div className="onboarding-steps-container">
             <header>
-                <Link className="button" to="/main">
-                    Home
-                </Link>
+                <button onClick={handleLogout} type="button">
+                    <FiPower size={18} color="#E02041" />
+                </button>
             </header>
             <div className="sections-container">
                 <section className="info-elements">

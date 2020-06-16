@@ -48,6 +48,11 @@ export default function ProjectDevelopment() {
             alert("Por favor, reduza o numero de caracteres ou divida a mensagem em duas.");
             return;
         }
+        
+        if (newMessage.length === 0) {
+            alert("Digite uma mensagem na caixa de texto!");
+            return;
+        }
 
         const data = {
             message: newMessage

@@ -1,38 +1,38 @@
-.profile-container {
+.team-profile-container {
     width: 100%;
     max-width: 1480px;
     padding: 0 30px;
     margin: 32px auto;
 }
 
-.profile-container header {
+.team-profile-container header {
     display: flex;
     align-items: center;
 }
 
-.profile-container header .welcome-group {
+.team-profile-container header .welcome-group {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.profile-container header span {
+.team-profile-container header span {
     font-size: 25px;
     margin-left: 8px;
     margin-top: 0px;
 }
 
-.profile-container header a {
+.team-profile-container header a {
     width: 260px;
     margin-left: auto;
     background: #e02041;
 }
 
-.profile-container header a + a {
+.team-profile-container header a + a {
     margin-left: 15px;
 }
 
-.profile-container header button {
+.team-profile-container header button {
     height: 60px;
     width: 60px;
     border-radius: 4px;
@@ -42,17 +42,17 @@
     transition: border-color 0.2s;
 }
 
-.profile-container header button:hover {
+.team-profile-container header button:hover {
     border-color: #e02041;
 }
 
-.profile-container .content {
+.team-profile-container .content {
     width: 100%;
     max-width: 1320px;
     margin: 0 auto;
 }
 
-.profile-container .content .user-info {
+.team-profile-container .content .user-info {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -61,23 +61,23 @@
     margin-bottom: 20px;
 }
 
-.profile-container .content .user-info img {
+.team-profile-container .content .user-info img {
     width: 200px;
     height: 200px;
     margin-bottom: 20px;
 }
 
-.profile-container .content .user-info img.has-own-photo {
+.team-profile-container .content .user-info img.has-own-photo {
     border-radius: 50%;
     padding: 3px;
     border: 2px ridge #e02041;
 }
 
-.profile-container .content .user-info .texts h1 {
+.team-profile-container .content .user-info .texts h1 {
     margin-left: 16px;
 }
 
-.profile-container .content .user-info .texts p {
+.team-profile-container .content .user-info .texts p {
     font-size: 24px;
     color: #737380;
     line-height: 32px;
@@ -86,23 +86,23 @@
     filter: brightness(70%);
 }
 
-.profile-container .content .user-info .texts p + h1 {
+.team-profile-container .content .user-info .texts p + h1 {
     margin-top: 30px;
 }
 
-.profile-container .content .user-info .texts p.freelancer-techs-div {
+.team-profile-container .content .user-info .texts p.freelancer-techs-div {
     line-height: 50px;
     margin-bottom: 10px;
 }
 
-.profile-container .content .user-info .texts p span {
+.team-profile-container .content .user-info .texts p span {
     padding: 7px;
     border-radius: 6px;
     background-color: rgba(47, 173, 116, 0.2);
     margin-right: 10px;
 }
 
-.profile-container .content .comments-not-found {
+.team-profile-container .content .comments-not-found {
     width: 100%;
     height: 300px;
     display: flex;
@@ -113,12 +113,12 @@
     margin-top: 20px;
 }
 
-.profile-container .content .comments-not-found img {
+.team-profile-container .content .comments-not-found img {
     width: 600px;
     height: 200px;
 }
 
-.profile-container .content .comments-not-found h1 {
+.team-profile-container .content .comments-not-found h1 {
     color: #000;
     line-height: 21px;
     margin-top: 5px;
@@ -126,25 +126,59 @@
     font-weight: 500;
 }
 
-.profile-container .content .comments ul {
+.team-profile-container .content .members ul {
     list-style: none;
-    height: 300px;
+    max-height: 300px;
+    overflow-x: auto;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.team-profile-container .content .members ul .member {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.team-profile-container .content .members .member img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    margin-left: 10px;
+    padding: 3px;
+    border: 2px ridge #e02041;
+}
+
+.team-profile-container .content .members .member a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #3f006e;
+}
+
+.team-profile-container .content .comments ul {
+    list-style: none;
+    height: 200px;
     overflow-y: auto;
     margin-bottom: 5px;
 }
 
-.profile-container .content .comments ul:empty {
+.team-profile-container .content .comments ul:empty {
     height: 0px;
 }
 
-.profile-container .content .comments .comment {
+.team-profile-container .content .comments .comment {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     margin-bottom: 10px;
 }
 
-.profile-container .content .comments .comment img {
+.team-profile-container .content .comments .comment img {
     width: 60px;
     height: 60px;
     margin-bottom: 10px;
@@ -153,11 +187,11 @@
     border: 2px ridge #e02041;
 }
 
-.profile-container .content .comments .comment .texts h3 {
+.team-profile-container .content .comments .comment .texts h3 {
     margin-left: 16px;
 }
 
-.profile-container .content .comments .comment .texts p {
+.team-profile-container .content .comments .comment .texts p {
     font-size: 18px;
     color: #737380;
     line-height: 32px;
@@ -166,14 +200,14 @@
     margin-bottom: 10px;
 }
 
-.profile-container .content .new-comment {
+.team-profile-container .content .new-comment {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 40px;
 }
 
-.profile-container .content .new-comment input {
+.team-profile-container .content .new-comment input {
     width: 100%;
     height: 60px;
     color: #333;
@@ -182,7 +216,7 @@
     padding: 0 24px;
 }
 
-.profile-container .content .new-comment button {
+.team-profile-container .content .new-comment button {
     margin-left: 10px;
     width: 150px;
 }

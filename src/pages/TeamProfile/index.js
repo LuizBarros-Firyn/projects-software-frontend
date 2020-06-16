@@ -7,9 +7,10 @@ import Avatar from '../../assets/female_avatar.svg';
 import NoCommentsFound from '../../assets/no_results.svg'
 import './styles.css';
 
-export default function Profile(props) {
-    const [profileData, setProfileData] = useState([]);
-    const [profileComments, setProfileComments] = useState([]);
+export default function TeamProfile(props) {
+    const [teamProfileData, setTeamProfileData] = useState([]);
+    const [teamMembers, setTeamMembers] = useState([]);
+    const [teamProfileComments, setTeamProfileComments] = useState([]);
     const [newComment, setNewComment] = useState('');
     const userSession = JSON.parse(localStorage.getItem('userSession'));
     const userIsAuthenticated = localStorage.getItem('userIsAuthenticated');
@@ -22,18 +23,28 @@ export default function Profile(props) {
             history.push('/login');
         }
 
-        api.get(`users/${props.match.params.user_id}`).then(response => {
-            setProfileData(response.data);
+        console.log(props.match.params.team_id);
+
+        api.get(`teams/${props.match.params.team_id}`).then(response => {
+            setTeamProfileData(response.data);
         });
 
-        api.get('profile_comments', {
+        api.get('team_members', {
             headers:{
-                    profile_id: props.match.params.user_id
+                    team_id: props.match.params.team_id
             }            
         }).then(response => {
-            setProfileComments(response.data);
+            setTeamMembers(response.data);
         });
-    }, [userIsAuthenticated, history, props.match.params.user_id]);
+
+        api.get('team_profile_comments', {
+            headers:{
+                    team_profile_id: props.match.params.team_id
+            }            
+        }).then(response => {
+            setTeamProfileComments(response.data);
+        });
+    }, [userIsAuthenticated, history, props.match.params.team_id]);
 
     function handleLogout() {
         localStorage.clear();
@@ -52,13 +63,13 @@ export default function Profile(props) {
         }
 
         try {
-            await api.post('profile_comments', data, {
+            await api.post('team_profile_comments', data, {
                 headers: {
                     maker_id: userSession.user_id,
-                    profile_id: props.match.params.user_id
+                    team_profile_id: props.match.params.team_id
                 }
             }).then(response => {
-                setProfileComments([...profileComments, response.data]);
+                setTeamProfileComments([...teamProfileComments, response.data]);
             })
         } catch (error) {
             alert('Erro ao enviar o comentário, tente novamente mais tarde');
@@ -67,25 +78,15 @@ export default function Profile(props) {
         setNewComment('');
     }
 
-    function renderFreelancerTechs(techs) {
-        if (techs) { // checks if the parameters have already been set
-            return(
-                techs.map(tech => (
-                    <span key={tech} className="freelancer-techs">{tech}</span>
-                ))
-            );
-        }
-    }
-
     return(
-        <div className="profile-container">        
+        <div className="team-profile-container">        
             <header>
                 <div className="welcome-group">
                     <FiTerminal size={40} color="#e02041" />
                     <span>Bem vindo, {userSession.user_name}</span>
                 </div>
-                {userSession.user_id === props.match.params.user_id &&
-                    <Link className="button" to={ userSession.user_is_freelancer ? "/freelancer_profile_settings" :"/client_profile_settings"}>
+                {userSession.user_id === teamProfileData.owner &&
+                    <Link className="button" to="/team_settings">
                         Editar Perfil
                     </Link>
                 }
@@ -99,41 +100,54 @@ export default function Profile(props) {
             
             <div className="content">
                 <div className="user-info">
-                    <img className={profileData.photo && 'has-own-photo'} src={
-                        profileData.photo ? 
-                            `${process.env.REACT_APP_API_URL}/files/${profileData.photo}` 
+                    <img className={teamProfileData.photo && 'has-own-photo'} src={
+                        teamProfileData.photo ? 
+                            `${process.env.REACT_APP_API_URL}/files/${teamProfileData.photo}` 
                         : 
                             Avatar
                         }
                         alt="avatar"
                     />
                     <div className="texts">
-                        <h1>{profileData.name}.</h1>
-                        <p>{profileData.description}</p>
-                        <h1>{profileData.is_freelancer ? "Técnologias Dominadas" : "Nome do negócio"}</h1>
-                        <p className={ profileData.is_freelancer ? 'freelancer-techs-div' : ''}>
-                            { profileData.is_freelancer ? renderFreelancerTechs(profileData.techs)  : profileData.company_name }
-                        </p>
+                        <h1>Equipe {teamProfileData.title}.</h1>
+                        <p>{teamProfileData.description}</p>
                     </div>
                 </div>
+                <h1 style={{marginBottom: 20}} >Membros</h1>
+                <div className="members">
+                    <ul>
+                        {teamMembers.map(teamMember => (
+                            <li key={teamMember._id}>
+                                <div className="member">
+                                    <Link to={`/profile/${teamMember._id}`}>
+                                    <img src={teamMember.photo ? `${process.env.REACT_APP_API_URL}/files/${teamMember.photo}` : Avatar} alt="avatar"/>
+                                    <div className="texts">
+                                        <h3>{teamMember.name}</h3>
+                                    </div>
+                                    </Link>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
                 <h1 style={{marginBottom: 20}} >Comentários</h1>
-                {profileComments.length <= 0 &&
+                {teamProfileComments.length <= 0 &&
                     <div className="comments-not-found">
                         <h1>Ainda não há comentários! =(</h1>
                         <img src={NoCommentsFound} alt="No Comments Found" />
                     </div>
-                }
+                } 
                 <div className="comments">
                     <ul>
-                        {profileComments.map(comment => (
+                        {teamProfileComments.map(comment => (
                             <li key={comment._id}>
                                 <div className="comment">
-                                <img src={comment.maker.photo ? `${process.env.REACT_APP_API_URL}/files/${comment.maker.photo}` : Avatar} alt="avatar"/>
-                                <div className="texts">
-                                    <h3>{comment.maker.name}.</h3>
-                                    <p>{comment.message}</p>
+                                    <img src={comment.maker.photo ? `${process.env.REACT_APP_API_URL}/files/${comment.maker.photo}` : Avatar} alt="avatar"/>
+                                    <div className="texts">
+                                        <h3>{comment.maker.name}.</h3>
+                                        <p>{comment.message}</p>
+                                    </div>
                                 </div>
-                            </div>
                             </li>
                         ))}
                     </ul>

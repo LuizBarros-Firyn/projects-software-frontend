@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
 
+import Avatar from '../../assets/female_avatar.svg';
 import NoProjectsFound from '../../assets/no_projects_found.svg';
 import { FiTerminal, FiPower } from 'react-icons/fi';
 
@@ -117,14 +118,16 @@ export default function JoiningSolicitationsReview() {
                 {solicitations.map(solicitation => (
                     <li key={solicitation._id}>
                         <div className="img">
-                            <img src={`${process.env.REACT_APP_API_URL}/files/${solicitation.user.photo}`} alt="freelancer" />
+                            <img src={solicitation.user.photo ? `${process.env.REACT_APP_API_URL}/files/${solicitation.user.photo}` : Avatar} alt="freelancer" />
                         </div>
                         <strong>NOME DO FREELANCER:</strong>
-                        <p>{solicitation.user.name}</p>
+                        <Link className="name-ref" to={`/profile/${solicitation.user._id}`}>
+                            {solicitation.user.name}
+                        </Link>
                         <strong>IDADE DO FREELANCER:</strong>
                         <p>{solicitation.user.age}</p>
                         <strong>PRINCIPAIS TÉCNOLOGIAS:</strong>
-                        <p className="techs-field">{renderFreelancerTechs(solicitation.user.techs)}{renderFreelancerTechs(solicitation.user.techs)}{renderFreelancerTechs(solicitation.user.techs)}{renderFreelancerTechs(solicitation.user.techs)}{renderFreelancerTechs(solicitation.user.techs)}</p>
+                        <p className="techs-field">{renderFreelancerTechs(solicitation.user.techs)}</p>
                         <strong>MENSAGEM DE SOLICITAÇÃO:</strong>
                         <p>{solicitation.message}</p>
                         <div className="choice-buttons">
@@ -139,8 +142,13 @@ export default function JoiningSolicitationsReview() {
                 ))}
                 {solicitations.map(solicitation => (
                     <li key={solicitation._id}>
+                        <div className="img">
+                            <img src={Avatar} alt="freelancer" />
+                        </div>
                         <strong>NOME DO FREELANCER:</strong>
-                        <p>{solicitation.user.name}</p>
+                        <Link className="name-ref" to={`/profile/${solicitation.user._id}`}>
+                            {solicitation.user.name}
+                        </Link>
                         <strong>IDADE DO FREELANCER:</strong>
                         <p>{solicitation.user.age}</p>
                         <strong>PRINCIPAIS TÉCNOLOGIAS:</strong>

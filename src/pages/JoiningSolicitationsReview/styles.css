@@ -99,6 +99,8 @@
     width: 160px;
     height: 160px;
     border-radius: 50%;
+    padding: 3px;
+    border: 2px ridge #e02041;
 }
 
 .joining-solicitations-review-container ul li strong {
@@ -157,6 +159,12 @@
     margin-top: 10px;
     text-decoration: none;
     width: fit-content;
+}
+
+.joining-solicitations-review-container ul li a.name-ref {
+    color: #3c008f;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .joining-solicitations-review-container ul li a h3 {

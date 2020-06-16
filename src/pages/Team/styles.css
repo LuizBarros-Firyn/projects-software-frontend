@@ -68,6 +68,10 @@
     overflow-x: hidden;
 }
 
+.team-container .chat-container .messages a {
+    text-decoration: none;
+}
+
 .team-container .chat-container .new-message {
     display: flex;
     justify-content: center;

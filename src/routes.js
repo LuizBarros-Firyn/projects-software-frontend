@@ -21,6 +21,7 @@ import Team from './pages/Team';
 import TeamJoiningSolicitation from './pages/TeamJoiningSolicitation';
 import JoiningSolicitationsReview from './pages/JoiningSolicitationsReview';
 import Profile from './pages/Profile';
+import TeamProfile from './pages/TeamProfile';
 import FreelancerProfileSettings from './pages/FreelancerProfileSettings';
 import ClientProfileSettings from './pages/ClientProfileSettings';
 import OnboardingSteps from './pages/OnboardingSteps';
@@ -50,6 +51,7 @@ export default function Routes() {
                 <Route path="/team_joining_solicitation" component={TeamJoiningSolicitation} />
                 <Route path="/joining_solicitations_review" component={JoiningSolicitationsReview} />
                 <Route path="/profile/:user_id" component={Profile} />
+                <Route path="/team_profile/:team_id" component={TeamProfile} />
                 <Route path="/freelancer_profile_settings" component={FreelancerProfileSettings} />
                 <Route path="/client_profile_settings" component={ClientProfileSettings} />
                 <Route path="/onboarding_steps" component={OnboardingSteps} />

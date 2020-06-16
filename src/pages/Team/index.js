@@ -36,6 +36,11 @@ export default function Team() {
             return;
         }
 
+        if (newMessage.length === 0) {
+            alert("Digite uma mensagem na caixa de texto!");
+            return;
+        }
+
         const data = {
             message: newMessage
         }
@@ -87,7 +92,7 @@ export default function Team() {
                                 { teamMessage.sender._id === userSession.user_id ?
                                     <Fragment>
                                         <div className="session-user-messages">
-                                            <Link to={`/freelancer_profile/${teamMessage.sender._id}`}>
+                                            <Link to={`/profile/${teamMessage.sender._id}`}>
                                                 <strong>{teamMessage.sender.name}</strong>
                                             </Link>
                                             <p>{teamMessage.message}</p>
@@ -96,7 +101,7 @@ export default function Team() {
                                 :
                                     <Fragment>
                                         <div className="interlocutors-messages">
-                                        <Link to={`/freelancer_profile/${teamMessage.sender._id}`}>
+                                        <Link to={`/profile/${teamMessage.sender._id}`}>
                                             <strong>{teamMessage.sender.name}</strong>
                                         </Link>
                                             <p>{teamMessage.message}</p>

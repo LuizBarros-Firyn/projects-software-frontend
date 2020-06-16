@@ -18,6 +18,21 @@
     margin-left: auto;
 }
 
+.onboarding-steps-container header button {
+    height: 60px;
+    width: 60px;
+    border-radius: 4px;
+    border: 1px solid #dcdce6;
+    background: transparent;
+    margin-left: 16px;
+    transition: border-color 0.2s;
+    margin-left: auto;
+}
+
+.onboarding-steps-container header button:hover {
+    border-color: #e02041;
+}
+
 .onboarding-steps-container .sections-container {
     width: 100%;
     margin-top: 80px;

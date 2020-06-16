@@ -88,7 +88,23 @@ export default function FreelancerMain() {
                             Equipe
                         </Link>
                     }
-                    <Link className="button" to={`/profile/${userSession.user_id}`}>Meu perfil</Link>
+                    <div className="dropdown">
+                                <button className="button button-dropdown">
+                                    Perfil <FiChevronDown size={20} color="#000"/>
+                                </button>
+                                <ul className="dropdown-options">
+                                    <li>
+                                        <Link to={`/profile/${userSession.user_id}`}>
+                                            Meu perfil
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to={`/team_profile/${userSession.user_team_id}`}>
+                                            Perfil da equipe
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
                 </div>
                 <button onClick={handleLogout} className="logout" type="button">
                     <FiPower size={18} color="#E02041" />

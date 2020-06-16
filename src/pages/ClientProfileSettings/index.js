@@ -50,7 +50,7 @@ export default function ClientProfileSettings() {
         data.append('user_is_freelancer', userSession.user_is_freelancer);
 
         try {
-            await api.put(`users/${userSession.user_id}`, data, {
+            await api.put('users', data, {
                 headers: {
                     user_id: userSession.user_id,
                 }
@@ -86,7 +86,7 @@ export default function ClientProfileSettings() {
                             <FiTerminal size={40} color="#e02041"/>
                             <h1>Edite suas configurações de perfil</h1>
                         </div>
-                        <p>Aqui você pode sempre editar suas configurações de equipe!
+                        <p>Aqui você pode sempre editar suas configurações de perfil!
                         </p>
                         <Link className="back-link" to="/main">
                             <FiArrowLeft size={16} color="#E02041" />
