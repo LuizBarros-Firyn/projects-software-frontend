@@ -116,6 +116,29 @@ export default function JoiningSolicitationsReview() {
             <ul>
                 {solicitations.map(solicitation => (
                     <li key={solicitation._id}>
+                        <div className="img">
+                            <img src={`${process.env.REACT_APP_API_URL}/files/${solicitation.user.photo}`} alt="freelancer" />
+                        </div>
+                        <strong>NOME DO FREELANCER:</strong>
+                        <p>{solicitation.user.name}</p>
+                        <strong>IDADE DO FREELANCER:</strong>
+                        <p>{solicitation.user.age}</p>
+                        <strong>PRINCIPAIS TÉCNOLOGIAS:</strong>
+                        <p className="techs-field">{renderFreelancerTechs(solicitation.user.techs)}{renderFreelancerTechs(solicitation.user.techs)}{renderFreelancerTechs(solicitation.user.techs)}{renderFreelancerTechs(solicitation.user.techs)}{renderFreelancerTechs(solicitation.user.techs)}</p>
+                        <strong>MENSAGEM DE SOLICITAÇÃO:</strong>
+                        <p>{solicitation.message}</p>
+                        <div className="choice-buttons">
+                            <button className="button" onClick={() => handleDeleteSolicitation(solicitation._id)} style={{backgroundColor: "#e02041"}}>
+                                Recusar
+                            </button>
+                            <button className="button" onClick={() => handleAcceptSolicitation(solicitation)} style={{backgroundColor: "#e02041"}}>
+                                Aceitar
+                            </button>
+                        </div>
+                    </li>
+                ))}
+                {solicitations.map(solicitation => (
+                    <li key={solicitation._id}>
                         <strong>NOME DO FREELANCER:</strong>
                         <p>{solicitation.user.name}</p>
                         <strong>IDADE DO FREELANCER:</strong>

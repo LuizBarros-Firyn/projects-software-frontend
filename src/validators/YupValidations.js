@@ -86,7 +86,7 @@ export function bugReportValidation() {
     return schema;
 };
 
-export function profileSettingsValidation() {
+export function freelancerProfileSettingsValidation() {
     const schema = Yup.object().shape({
         name: Yup.string().min(5, "Nome inválido").max(50, "Nome inválido").required("Nome obrigatório"),
         description: Yup.string().min(30, "Forneça uma descrição mais detalhada").max(400, "Forneça uma descrição mais direta").required("A descrição é obrigatória"),
@@ -97,3 +97,23 @@ export function profileSettingsValidation() {
 
     return schema;
 };
+
+export function clientProfileSettingsValidation() {
+    const schema = Yup.object().shape({
+        name: Yup.string().min(5, "Nome inválido").max(50, "Nome inválido").required("Nome obrigatório"),
+        description: Yup.string().min(30, "Forneça uma descrição mais detalhada").max(400, "Forneça uma descrição mais direta").required("A descrição é obrigatória"),
+        city: Yup.string().min(2, "Cidade inválida").max(60, "Cidade inválida").required("Cidade obrigatória"),
+        uf: Yup.string().min(2, "UF inválido").max(2, "UF inválido").required("UF obrigatório"),
+        company_name: Yup.string().max(80, "Nome do negócio inválido").min(2, "Nome do negócio inválido").required("Nome do negócio obrigatório"),
+    });
+
+    return schema;
+};
+
+export function onboardingStepsValidation() {
+    const schema = Yup.object().shape({
+        description: Yup.string().min(30, "Forneça uma descrição mais detalhada").max(400, "Forneça uma descrição mais direta").required("A descrição é obrigatória")
+    });
+
+    return schema;
+}

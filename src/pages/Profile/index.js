@@ -32,7 +32,6 @@ export default function Profile(props) {
             }            
         }).then(response => {
             setProfileComments(response.data);
-            console.log(response.data);
         });
     }, [userIsAuthenticated, userSession.user_has_team, history, props.match.params.user_id]);
 
@@ -79,14 +78,14 @@ export default function Profile(props) {
     }
 
     return(
-        <div className="freelancer-profile-container">        
+        <div className="profile-container">        
             <header>
                 <div className="welcome-group">
                     <FiTerminal size={40} color="#e02041" />
                     <span>Bem vindo, {userSession.user_name}</span>
                 </div>
                 {userSession.user_id === props.match.params.user_id &&
-                    <Link className="button" to="/profile_settings">
+                    <Link className="button" to={ userSession.user_is_freelancer ? "/freelancer_profile_settings" :"/client_profile_settings"}>
                         Editar Perfil
                     </Link>
                 }
@@ -111,8 +110,10 @@ export default function Profile(props) {
                     <div className="texts">
                         <h1>{profileData.name}.</h1>
                         <p>{profileData.description}</p>
-                        <h1>Tecnologias dominadas:</h1>
-                        <p className="freelancer-techs-div">{renderFreelancerTechs(profileData.techs)}</p>
+                        <h1>{profileData.is_freelancer ? "Técnologias Dominadas" : "Nome do negócio"}</h1>
+                        <p className={ profileData.is_freelancer ? 'freelancer-techs-div' : ''}>
+                            { profileData.is_freelancer ? renderFreelancerTechs(profileData.techs)  : profileData.company_name }
+                        </p>
                     </div>
                 </div>
                 <h1 style={{marginBottom: 20}} >Comentários</h1>

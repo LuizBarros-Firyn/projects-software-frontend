@@ -38,10 +38,8 @@ export default function ClientRegister() {
     
                 localStorage.setItem('userSession', JSON.stringify(userSession));
                 localStorage.setItem('userIsAuthenticated', true);
-    
-                alert(`Seja bem vindo, ${response.data.name}`);
-
-                history.push('/main'); 
+                
+                history.push('/onboarding_steps'); 
             });
         } catch (error) {
             alert('Erro no cadastro, tente novamente.');

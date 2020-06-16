@@ -22,12 +22,13 @@
     margin-top: 0px;
 }
 
-.client-main-container header .features {
+.client-main-container .features {
     margin-left: auto;
 }
 
 .client-main-container header .features a {
     width: 260px;
+    margin-left: auto;
     background: #e02041;
 }
 
@@ -81,9 +82,10 @@
     margin-top: 40px;
 }
 
+
 .client-main-container ul {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-gap: 24px;
     list-style: none;
 }
@@ -110,4 +112,26 @@
 
 .client-main-container ul li p + strong {
     margin-top: 32px;
+}
+
+.client-main-container ul li a {
+    display: flex;
+    align-items: center;
+    border: 0;
+    background: #FFF;
+    color: #e02041;
+    margin-top: 10px;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.client-main-container ul li a h3 {
+    margin-left: 15px;
+    font-size: 20px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+ul li a h3:hover {
+    opacity: 0.7;
 }

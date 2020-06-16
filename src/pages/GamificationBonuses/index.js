@@ -7,26 +7,23 @@ import { FiTerminal, FiPower, FiArrowRight } from 'react-icons/fi';
 
 import './styles.css';
 
-export default function ClientMain() {
-    const [projects, setProjects] = useState([]);
+export default function GamificationBonuses() {
     const userSession = JSON.parse(localStorage.getItem('userSession'));
     const userIsAuthenticated = localStorage.getItem('userIsAuthenticated');
 
     const history = useHistory();
 
     useEffect(() => {
-        if (userSession.user_is_freelancer || !userIsAuthenticated) {
+        if (!userIsAuthenticated) {
             alert('Acesso não autorizado.');
             history.push('/login');
         }
 
-        api.get('projects_offers', {
+        api.get('user_bonuses', {
             headers: {
                 user_id: userSession.user_id
             }
-        }).then(response => {
-            setProjects(response.data);
-        });
+        })
     }, [history, userSession.user_is_freelancer, userSession.user_id, userIsAuthenticated]);
 
     function handleLogout() {
@@ -35,13 +32,8 @@ export default function ClientMain() {
         history.push('/login');
     }
 
-    function sendProjectInfo(projectId, projectTitle) {
-        localStorage.setItem('projectId', projectId);
-        localStorage.setItem('projectTitle', projectTitle);
-    }
-
     return(
-        <div className="client-main-container">        
+        <div className="gamification-bonuses-container">        
             <header>
                 <div className="welcome-group">
                     <FiTerminal size={40} color="#e02041" />

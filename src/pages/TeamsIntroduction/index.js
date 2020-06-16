@@ -31,6 +31,9 @@ export default function TeamsIntroduction() {
                     <FiTerminal size={40} color="#e02041" />
                     <span>Seja bem vindo ao Teams!</span>
                 </div>
+                <Link className="button" to={`/profile/${userSession.user_id}`}>
+                    Meu perfil
+                </Link>
                 <button onClick={handleLogout} type="button">
                     <FiPower size={18} color="#E02041" />
                 </button>

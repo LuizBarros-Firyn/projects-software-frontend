@@ -11,7 +11,6 @@ import Login from './pages/Login';
 import Main from './pages/Main';
 import NewProject from './pages/NewProject';
 import NewOffer from './pages/NewOffer';
-import ProjectsOffers from './pages/ProjectsOffers';
 import OffersReview from './pages/OffersReview';
 import OngoingProjects from './pages/OngoingProjects';
 import ProjectDevelopment from './pages/ProjectDevelopment';
@@ -21,8 +20,11 @@ import Teams from './pages/Teams';
 import Team from './pages/Team';
 import TeamJoiningSolicitation from './pages/TeamJoiningSolicitation';
 import JoiningSolicitationsReview from './pages/JoiningSolicitationsReview';
-import FreelancerProfile from './pages/FreelancerProfile';
-import ProfileSettings from './pages/ProfileSettings';
+import Profile from './pages/Profile';
+import FreelancerProfileSettings from './pages/FreelancerProfileSettings';
+import ClientProfileSettings from './pages/ClientProfileSettings';
+import OnboardingSteps from './pages/OnboardingSteps';
+import Gamification from './pages/Gamification';
 
 export default function Routes() {
     return(
@@ -38,7 +40,6 @@ export default function Routes() {
                 <Route path="/main" component={Main} />
                 <Route path="/new_project" component={NewProject} />
                 <Route path="/new_offer" component={NewOffer} />
-                <Route path="/offers" component={ProjectsOffers} />
                 <Route path="/offers_review" component={OffersReview} />
                 <Route path="/ongoing_projects" component={OngoingProjects} />
                 <Route path="/project_development" component={ProjectDevelopment} />
@@ -48,8 +49,11 @@ export default function Routes() {
                 <Route path="/team" component={Team} />
                 <Route path="/team_joining_solicitation" component={TeamJoiningSolicitation} />
                 <Route path="/joining_solicitations_review" component={JoiningSolicitationsReview} />
-                <Route path="/freelancer_profile/:user_id" component={FreelancerProfile} />
-                <Route path="/profile_settings" component={ProfileSettings} />
+                <Route path="/profile/:user_id" component={Profile} />
+                <Route path="/freelancer_profile_settings" component={FreelancerProfileSettings} />
+                <Route path="/client_profile_settings" component={ClientProfileSettings} />
+                <Route path="/onboarding_steps" component={OnboardingSteps} />
+                <Route path="/gamification" component={Gamification} />
             </Switch>
         </BrowserRouter>
     );

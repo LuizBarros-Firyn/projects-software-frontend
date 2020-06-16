@@ -86,6 +86,19 @@
     padding: 24px;
     border-radius: 8px;
     position: relative;
+    max-width: 720px;
+}
+
+.joining-solicitations-review-container ul li .img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.joining-solicitations-review-container ul li img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
 }
 
 .joining-solicitations-review-container ul li strong {
@@ -118,6 +131,21 @@
 .joining-solicitations-review-container ul li p:last-of-type {
     height: 86px;
     overflow-y: scroll;
+}
+
+.joining-solicitations-review-container ul li p.techs-field {
+    line-height: 50px;
+    margin-bottom: 10px;
+    max-width: 600px;
+    word-wrap:break-word;
+    text-align: justify;
+}
+
+.joining-solicitations-review-container ul li p span {
+    padding: 7px;
+    border-radius: 6px;
+    background-color: rgba(47, 173, 116, 0.2);
+    margin-right: 10px;
 }
 
 .joining-solicitations-review-container ul li a {

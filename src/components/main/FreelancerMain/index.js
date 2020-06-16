@@ -49,9 +49,12 @@ export default function FreelancerMain() {
             <header>
                 <div className="welcome-group">
                     <FiTerminal size={40} color="#e02041" />
-                    <span>Bem vindo, {userSession.user_name}</span>
+                    <span>Bem vindo(a), {userSession.user_name}</span>
                 </div>
                 <div className="features">
+                    <Link className="button" to="/gamification" >
+                        Gamification
+                    </Link>
                     <Link className="button" to="/ongoing_projects" >
                         Projetos em Andamento
                     </Link>
@@ -85,7 +88,7 @@ export default function FreelancerMain() {
                             Equipe
                         </Link>
                     }
-                    <Link className="button" to={`/freelancer_profile/${userSession.user_id}`}>Meu perfil</Link>
+                    <Link className="button" to={`/profile/${userSession.user_id}`}>Meu perfil</Link>
                 </div>
                 <button onClick={handleLogout} className="logout" type="button">
                     <FiPower size={18} color="#E02041" />

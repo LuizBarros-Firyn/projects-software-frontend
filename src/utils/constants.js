@@ -60,10 +60,22 @@ export const bugReportInitialValues = {
     "description": "",
 };
 
-export const profileSettingsInitialValues = {
+export const freelancerProfileSettingsInitialValues = {
     "name": "",
     "description": "",
     "city": "",
     "uf": "",
     "techs": "",
 };
+
+export const clientProfileSettingsInitialValues = {
+    "name": "",
+    "description": "",
+    "city": "",
+    "uf": "",
+    "techs": "",
+};
+
+export const onboardingStepsInitialValues = {
+    "description": ""
+}

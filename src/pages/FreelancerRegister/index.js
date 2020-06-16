@@ -30,15 +30,18 @@ export default function FreelancerRegister() {
 
         try {
             await api.post('users', data).then(response => {
+                if (response.data.fail_message){
+                    alert(response.data.fail_message);
+                    return;
+                }
+
                 const userSession = { user_id: response.data._id, user_name: response.data.name, user_is_freelancer: response.data.is_freelancer, user_has_team: false }
 
                 localStorage.setItem('userSession', JSON.stringify(userSession));
                 localStorage.setItem('userIsAuthenticated', true);
-    
-                alert(`Seja bem vindo, ${response.data.name}`);
-            });
 
-            history.push('/main');
+                history.push('/onboarding_steps');
+            });
         } catch (error) {
             alert('Erro no cadastro, tente novamente.');
         }

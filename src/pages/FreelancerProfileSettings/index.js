@@ -4,22 +4,18 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { FiTerminal, FiPower, FiArrowLeft, FiCamera} from 'react-icons/fi';
 import api from '../../services/api';
 
-import { profileSettingsValidation } from '../../validators/YupValidations';
-import { profileSettingsInitialValues as initialValues } from '../../utils/constants';
+import { freelancerProfileSettingsValidation } from '../../validators/YupValidations';
+import { freelancerProfileSettingsInitialValues as initialValues } from '../../utils/constants';
 
 import './styles.css';
 
-export default function ProfileSettings() {
+export default function FreelancerProfileSettings() {
     const [user, setUser] = useState([]);
     const [photo, setPhoto] = useState(null);
     const userSession = JSON.parse(localStorage.getItem('userSession'));
     const userIsAuthenticated = localStorage.getItem('userIsAuthenticated');
 
     const history = useHistory();
-
-    const preview = useMemo(() => {
-        return photo ? URL.createObjectURL(photo) : null;
-    }, [photo])
 
     useEffect(() => {
         if (!userIsAuthenticated || !userSession.user_is_freelancer) {
@@ -31,6 +27,10 @@ export default function ProfileSettings() {
             setUser(response.data);
         });
     }, [userIsAuthenticated, userSession.user_id, history, userSession.user_is_freelancer]);
+
+    const preview = useMemo(() => {
+        return photo ? URL.createObjectURL(photo) : null;
+    }, [photo]);
 
     function handleLogout() {
         localStorage.clear();
@@ -47,15 +47,16 @@ export default function ProfileSettings() {
         data.append('city', values.city);
         data.append('uf', values.uf);
         data.append('techs', values.techs);
+        data.append('user_is_freelancer', userSession.user_is_freelancer);
 
         try {
             await api.put(`users/${userSession.user_id}`, data, {
                 headers: {
-                    user_id: userSession.user_id
+                    user_id: userSession.user_id,
                 }
             });
 
-            history.push(`/freelancer_profile/${userSession.user_id}`)
+            history.push(`/profile/${userSession.user_id}`)
 
             alert('Informações de usuário atualizadas com sucesso!');
         } catch (error) {
@@ -64,7 +65,7 @@ export default function ProfileSettings() {
     }
 
     return(
-        <div className="profile-settings-container">        
+        <div className="freelancer-profile-settings-container">        
             <header>
                 <div className="welcome-group">
                     <FiTerminal size={40} color="#e02041" />
@@ -92,7 +93,7 @@ export default function ProfileSettings() {
                             <span>Voltar</span>
                         </Link>
                     </section>
-                    <Formik initialValues={initialValues} onSubmit={handleUpdateUser} validationSchema={profileSettingsValidation}>
+                    <Formik initialValues={initialValues} onSubmit={handleUpdateUser} validationSchema={freelancerProfileSettingsValidation}>
                         { props => {
                             const {
                                 touched, errors, isSubmitting

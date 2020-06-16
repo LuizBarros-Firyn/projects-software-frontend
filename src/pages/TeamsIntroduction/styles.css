@@ -22,14 +22,20 @@
     margin-top: 0px;
 }
 
+.teams-introduction-container header a.button {
+    margin-left: auto;
+    width: 260px;
+    background-color: #e02041;
+}
+
 .teams-introduction-container header button {
     height: 60px;
     width: 60px;
     border-radius: 4px;
     border: 1px solid #dcdce6;
     background: transparent;
-    margin-left: auto;
     transition: border-color 0.2s;
+    margin-left: 20px;
 }
 
 .teams-introduction-container header button:hover {

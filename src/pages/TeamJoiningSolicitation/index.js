@@ -57,7 +57,7 @@ export default function CreateTeam() {
                         <h1>Faça sua solicitação !</h1>
                     </div>
                     <p>Faça sua solicitação para ingressar na equipe {teamTitle} e desenvolva grandes projetos em equipe!</p>
-                    <Link className="back-link" to="/main">
+                    <Link className="back-link" to="/teams">
                         <FiArrowLeft size={16} color="#E02041" />
                         <span>Voltar</span>
                     </Link>

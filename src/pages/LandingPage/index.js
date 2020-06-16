@@ -7,7 +7,7 @@ import { FaFacebookSquare, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 import './styles.css';
 
-export default function Home() {
+export default function LandingPage() {
     return (
         <div className="landing-page-container">
             <header>
