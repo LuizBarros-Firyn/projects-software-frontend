@@ -65,7 +65,7 @@ export default function Teams() {
                 {teams.map(team => (
                     <li key={team._id}>
                         <strong>NOME:</strong>
-                        <p>{team.title}</p>
+                        <Link style={{ fontSize: 18 }} to={`/team_profile/${team._id}`}>{team.title}</Link>
                         <strong>DESCRIÇÃO DA EQUIPE</strong>
                         <p>{team.description}</p>
                         <Link to="/team_joining_solicitation" onClick={() => sendTeamInfo(team._id, team.title, team.owner)}>

@@ -116,6 +116,11 @@
     width: fit-content;
 }
 
+.offers-review-container ul li a.team-link {
+    font-size: 18px;
+    color: #e02041;
+}
+
 .offers-review-container ul li a h3 {
     margin-left: 15px;
     font-size: 20px;

@@ -99,7 +99,7 @@ export default function OffersReview() {
                 {offers.map(offer => (
                     <li key={offer._id}>
                         <strong>NOME DA EQUIPE:</strong>
-                        <p>{offer.team.title}</p>
+                        <Link className="team-link" to={`/team_profile/${offer.team._id}`}>{offer.team.title}</Link>
                         <strong>DESCRIÇÃO DA PROPOSTA:</strong>
                         <p>{offer.description}</p>
                         <strong>DATA DE INICIO:</strong>
