@@ -11,6 +11,7 @@ export default function ClientMain() {
     const [projects, setProjects] = useState([]);
     const userSession = JSON.parse(localStorage.getItem('userSession'));
     const userIsAuthenticated = localStorage.getItem('userIsAuthenticated');
+    const authorization = localStorage.getItem('authorization');
 
     const history = useHistory();
 
@@ -22,12 +23,13 @@ export default function ClientMain() {
 
         api.get('projects_offers', {
             headers: {
-                user_id: userSession.user_id
+                user_id: userSession.user_id,
+                authorization
             }
         }).then(response => {
             setProjects(response.data);
         });
-    }, [history, userSession.user_is_freelancer, userSession.user_id, userIsAuthenticated]);
+    }, [history, userSession.user_is_freelancer, userSession.user_id, userIsAuthenticated, authorization]);
 
     function handleLogout() {
         localStorage.clear();

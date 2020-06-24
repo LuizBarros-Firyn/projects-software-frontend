@@ -25,6 +25,7 @@ import TeamProfile from './pages/TeamProfile';
 import FreelancerProfileSettings from './pages/FreelancerProfileSettings';
 import ClientProfileSettings from './pages/ClientProfileSettings';
 import OnboardingSteps from './pages/OnboardingSteps';
+import GamificationIntroduction from './pages/GamificationIntroduction';
 import Gamification from './pages/Gamification';
 
 export default function Routes() {
@@ -40,7 +41,7 @@ export default function Routes() {
                 <Route path="/login" component={Login} />
                 <Route path="/main" component={Main} />
                 <Route path="/new_project" component={NewProject} />
-                <Route path="/new_offer" component={NewOffer} />
+                <Route path="/new_offer/:project_id" component={NewOffer} />
                 <Route path="/offers_review" component={OffersReview} />
                 <Route path="/ongoing_projects" component={OngoingProjects} />
                 <Route path="/project_development" component={ProjectDevelopment} />
@@ -55,6 +56,7 @@ export default function Routes() {
                 <Route path="/freelancer_profile_settings" component={FreelancerProfileSettings} />
                 <Route path="/client_profile_settings" component={ClientProfileSettings} />
                 <Route path="/onboarding_steps" component={OnboardingSteps} />
+                <Route path="/gamification_introduction" component={GamificationIntroduction} />
                 <Route path="/gamification" component={Gamification} />
             </Switch>
         </BrowserRouter>

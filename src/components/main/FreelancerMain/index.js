@@ -10,7 +10,8 @@ import './styles.css';
 export default function FreelancerMain() {
     const [projects, setProjects] = useState([]);
     const [isUserTeamOwner, setIsUserTeamOwner] = useState();
-    const userSession = JSON.parse(localStorage.getItem('userSession'));
+    const userSession = JSON.parse(localStorage.getItem('userSession')); 
+    const authorization = localStorage.getItem('authorization');
 
     const history = useHistory();
 
@@ -20,19 +21,24 @@ export default function FreelancerMain() {
             history.push('/login');
         }
 
-        api.get('available_projects').then(response => {
+        api.get('available_projects', {
+            headers: {
+                authorization
+            }
+        }).then(response => {
             setProjects(response.data);
         });
         
         api.get('team_owner_verifications', {
             headers: {
                 team_id: userSession.user_team_id,
-                user_id: userSession.user_id
+                user_id: userSession.user_id,
+                authorization
             }
         }).then(response => {
             setIsUserTeamOwner(response.data.user_is_team_owner);
         });
-    }, [history, userSession.user_is_freelancer, userSession.user_team_id, userSession.user_id]);
+    }, [history, userSession.user_is_freelancer, userSession.user_team_id, userSession.user_id, authorization]);
 
     function handleLogout() {
         localStorage.clear();
@@ -52,7 +58,7 @@ export default function FreelancerMain() {
                     <span>Bem vindo(a), {userSession.user_name}</span>
                 </div>
                 <div className="features">
-                    <Link className="button" to="/gamification" >
+                    <Link className="button" to="/gamification_introduction" >
                         Gamification
                     </Link>
                     <Link className="button" to="/ongoing_projects" >
@@ -125,7 +131,7 @@ export default function FreelancerMain() {
                         <p>{project.title}</p>
                         <strong>DESCRIÇÃO:</strong>
                         <p>{project.description}</p>
-                        <Link className="button" to="/new_offer" onClick={() => sendProjectId(project._id)}>
+                        <Link className="button" to={`/new_offer/${project._id}`} onClick={() => sendProjectId(project._id)}>
                             Fazer proposta
                         </Link>
                     </li>

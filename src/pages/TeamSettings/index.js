@@ -14,6 +14,7 @@ export default function TeamSettings() {
     const [isHiring, setIsHiring] = useState([]);
     const userSession = JSON.parse(localStorage.getItem('userSession'));
     const userIsAuthenticated = localStorage.getItem('userIsAuthenticated');
+    const authorization = localStorage.getItem('authorization');
 
     const history = useHistory();
 
@@ -26,7 +27,8 @@ export default function TeamSettings() {
         api.get('team_owner_verifications', {
             headers: {
                 team_id: userSession.user_team_id,
-                user_id: userSession.user_id
+                user_id: userSession.user_id,
+                authorization
             }
         }).then(response => {
             if (!response.data.user_is_team_owner)
@@ -35,13 +37,14 @@ export default function TeamSettings() {
 
         api.get(`team_settings/${userSession.user_team_id}`, {
             headers: {
-                user_id: userSession.user_id
+                user_id: userSession.user_id,
+                authorization
             }
         }).then(response => {
             setTeam(response.data);
             setIsHiring(response.data.is_hiring)
         });
-    }, [userIsAuthenticated, userSession.user_team_id, userSession.user_has_team, userSession.user_id, history]);
+    }, [userIsAuthenticated, userSession.user_team_id, userSession.user_has_team, userSession.user_id, history, authorization]);
 
     function handleLogout() {
         localStorage.clear();
@@ -59,7 +62,8 @@ export default function TeamSettings() {
         try {
             await api.put(`team_settings/${userSession.user_team_id}`, data, {
                 headers: {
-                    user_id: userSession.user_id
+                    user_id: userSession.user_id,
+                    authorization
                 }
             }).then(async response => setTeam(response.data));
 

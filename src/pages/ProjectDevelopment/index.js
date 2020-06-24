@@ -13,6 +13,7 @@ export default function ProjectDevelopment() {
     const userSession = JSON.parse(localStorage.getItem('userSession'));
     const userIsAuthenticated = localStorage.getItem('userIsAuthenticated');
     const projectId = localStorage.getItem('projectId');
+    const authorization = localStorage.getItem('authorization');
 
     const history = useHistory();
 
@@ -25,7 +26,8 @@ export default function ProjectDevelopment() {
         async function fetchPageData() {
             await api.get(`ongoing_projects/${projectId}`, {
                 headers: {
-                        request_owner: userSession.user_is_freelancer ? userSession.user_team_id : userSession.user_id
+                        request_owner: userSession.user_is_freelancer ? userSession.user_team_id : userSession.user_id,
+                        authorization
                 }            
             }).then(response => {
                 setProject(response.data);
@@ -33,7 +35,8 @@ export default function ProjectDevelopment() {
     
             await api.get(`project_messages/${projectId}`, {
                 headers: {
-                        sender_id: userSession.user_is_freelancer ? userSession.user_team_id : userSession.user_id
+                        sender_id: userSession.user_is_freelancer ? userSession.user_team_id : userSession.user_id,
+                        authorization
                 }            
             }).then(response => {
                 setProjectMessages(response.data);
@@ -41,7 +44,7 @@ export default function ProjectDevelopment() {
         }
 
         fetchPageData();
-    }, [history, userIsAuthenticated, userSession.user_is_freelancer, userSession.user_id, userSession.user_team_id, projectId]);
+    }, [history, userIsAuthenticated, userSession.user_is_freelancer, userSession.user_id, userSession.user_team_id, projectId, authorization]);
 
     async function handleNewMessage() {
         if (newMessage.length > 400) {
@@ -62,7 +65,8 @@ export default function ProjectDevelopment() {
             await api.post('project_messages', data, {
                 headers: {
                     project_id: projectId,
-                    sender_id: userSession.user_is_freelancer ? userSession.user_team_id : userSession.user_id
+                    sender_id: userSession.user_is_freelancer ? userSession.user_team_id : userSession.user_id,
+                    authorization
                 }
             }).then(response => {
                 setProjectMessages([...projectMessages, response.data]);
@@ -76,7 +80,9 @@ export default function ProjectDevelopment() {
     
     async function handleSendToApproval() {
         try {
-            await api.put(`project_approval_state/${project._id}`).then(response => {
+            await api.put(`project_approval_state/${project._id}`, {}, {
+                headers: {authorization}
+            }).then(response => {
                 setProject(response.data);
             });
 
@@ -88,7 +94,9 @@ export default function ProjectDevelopment() {
 
     async function handleApprove() {
         try {
-            await api.put(`ongoing_projects/${project._id}`);
+            await api.put(`ongoing_projects/${project._id}`, {}, {
+                headers: {authorization}
+            });
 
             alert('Aprovado com sucesso! Agradecemos por fazer negócios em nossa plataforma!');
 
@@ -100,7 +108,9 @@ export default function ProjectDevelopment() {
 
     async function handleRefuse() {
         try {
-            await api.delete(`project_approval_state/${project._id}`).then(response => {
+            await api.delete(`project_approval_state/${project._id}`, {}, {
+                headers: {authorization}
+            }).then(response => {
                 setProject(response.data);
             });
 

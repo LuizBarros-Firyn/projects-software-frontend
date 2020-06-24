@@ -14,6 +14,7 @@ export default function TeamProfile(props) {
     const [newComment, setNewComment] = useState('');
     const userSession = JSON.parse(localStorage.getItem('userSession'));
     const userIsAuthenticated = localStorage.getItem('userIsAuthenticated');
+    const authorization = localStorage.getItem('authorization');
 
     const history = useHistory();
 
@@ -25,13 +26,18 @@ export default function TeamProfile(props) {
 
         console.log(props.match.params.team_id);
 
-        api.get(`teams/${props.match.params.team_id}`).then(response => {
+        api.get(`teams/${props.match.params.team_id}`, {
+            headers: {
+                authorization
+            }
+        }).then(response => {
             setTeamProfileData(response.data);
         });
 
         api.get('team_members', {
             headers:{
-                    team_id: props.match.params.team_id
+                    team_id: props.match.params.team_id,
+                    authorization
             }            
         }).then(response => {
             setTeamMembers(response.data);
@@ -39,12 +45,13 @@ export default function TeamProfile(props) {
 
         api.get('team_profile_comments', {
             headers:{
-                    team_profile_id: props.match.params.team_id
+                    team_profile_id: props.match.params.team_id,
+                    authorization
             }            
         }).then(response => {
             setTeamProfileComments(response.data);
         });
-    }, [userIsAuthenticated, history, props.match.params.team_id]);
+    }, [userIsAuthenticated, history, props.match.params.team_id, authorization]);
 
     function handleLogout() {
         localStorage.clear();
@@ -66,7 +73,8 @@ export default function TeamProfile(props) {
             await api.post('team_profile_comments', data, {
                 headers: {
                     maker_id: userSession.user_id,
-                    team_profile_id: props.match.params.team_id
+                    team_profile_id: props.match.params.team_id,
+                    authorization
                 }
             }).then(response => {
                 setTeamProfileComments([...teamProfileComments, response.data]);

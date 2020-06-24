@@ -22,6 +22,10 @@
     margin-top: 0px;
 }
 
+.profile-container header h2 {
+    margin-left: auto;
+}
+
 .profile-container header a {
     width: 260px;
     margin-left: auto;

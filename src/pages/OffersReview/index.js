@@ -13,6 +13,7 @@ export default function OffersReview() {
     const projectId = localStorage.getItem('projectId');
     const projectTitle = localStorage.getItem('projectTitle');
     const userIsAuthenticated = localStorage.getItem('userIsAuthenticated');
+    const authorization = localStorage.getItem('authorization');
 
     const history = useHistory();
 
@@ -25,12 +26,13 @@ export default function OffersReview() {
         api.get('offers', {
             headers: {
                 user_id: userSession.user_id,
-                project_id: projectId
+                project_id: projectId,
+                authorization
             }
         }).then(response => {
             setOffers(response.data);
         });
-    }, [history, projectId, userIsAuthenticated, userSession.user_id, userSession.user_is_freelancer]);
+    }, [history, projectId, userIsAuthenticated, userSession.user_id, userSession.user_is_freelancer, authorization]);
 
     function handleLogout() {
         localStorage.clear();
@@ -43,6 +45,7 @@ export default function OffersReview() {
             await api.delete(`offers/${id}`, {
                 headers: {
                     user_id: userSession.user_id,
+                    authorization
                 }
             });
 
@@ -63,7 +66,8 @@ export default function OffersReview() {
             await api.put(`assign_project_team/${offer.project}`, data, {
                 headers: {
                     user_id: userSession.user_id,
-                    team_id: offer.team._id
+                    team_id: offer.team._id,
+                    authorization
                 }
             });
 
@@ -71,6 +75,11 @@ export default function OffersReview() {
         } catch {
             alert('Erro ao deletar caso, tente novamente');
         }
+    }
+
+    function formatDate(string){
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(string).toLocaleDateString('pt-BR',options);
     }
 
     return(
@@ -103,9 +112,9 @@ export default function OffersReview() {
                         <strong>DESCRIÇÃO DA PROPOSTA:</strong>
                         <p>{offer.description}</p>
                         <strong>DATA DE INICIO:</strong>
-                        <p>{offer.start_date}</p>
+                        <p>{formatDate(offer.start_date)}</p>
                         <strong>DATA DE ENTREGA:</strong>
-                        <p>{offer.finish_date}</p>
+                        <p>{formatDate(offer.finish_date)}</p>
                         <strong>PREÇO:</strong>
                         <p>R$: {offer.price}</p>
                         <div className="choice-buttons">

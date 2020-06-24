@@ -16,6 +16,7 @@ export default function CreateTeam() {
     const teamId = localStorage.getItem('teamId');
     const teamOwner = localStorage.getItem('teamOwner');
     const teamTitle = localStorage.getItem('teamTitle');
+    const authorization = localStorage.getItem('authorization');
 
     const history = useHistory();
 
@@ -36,7 +37,8 @@ export default function CreateTeam() {
                 headers: {
                     user_id: userSession.user_id,
                     team_id: teamId,
-                    team_owner: teamOwner
+                    team_owner: teamOwner,
+                    authorization
                 }
             });
 

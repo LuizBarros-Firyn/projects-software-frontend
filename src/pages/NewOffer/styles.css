@@ -43,6 +43,10 @@
     line-height: 32px;
 }
 
+.new-offer-container .content section a {
+    width: fit-content;
+}
+
 .new-offer-container .content section a span {
     margin-left: 12px;
 }

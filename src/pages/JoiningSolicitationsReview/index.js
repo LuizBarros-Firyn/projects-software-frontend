@@ -12,6 +12,7 @@ export default function JoiningSolicitationsReview() {
     const [solicitations, setSolicitations] = useState([]);
     const userSession = JSON.parse(localStorage.getItem('userSession'));
     const userIsAuthenticated = localStorage.getItem('userIsAuthenticated');
+    const authorization = localStorage.getItem('authorization');
 
     const history = useHistory();
 
@@ -25,7 +26,8 @@ export default function JoiningSolicitationsReview() {
             api.get('team_owner_verifications', {
                 headers: {
                     team_id: userSession.user_team_id,
-                    user_id: userSession.user_id
+                    user_id: userSession.user_id,
+                    authorization
                 }
             }).then(response => {
                 if (!response.data.user_is_team_owner)
@@ -35,7 +37,8 @@ export default function JoiningSolicitationsReview() {
             api.get('team_joining_solicitations', {
                 headers: {
                     team_id: userSession.user_team_id,
-                    user_id: userSession.user_id
+                    user_id: userSession.user_id,
+                    authorization
                 }
             }).then(response => {
                 setSolicitations(response.data);
@@ -45,7 +48,7 @@ export default function JoiningSolicitationsReview() {
 
             history.push('/main');
         }
-    }, [history, userIsAuthenticated, userSession.user_has_team, userSession.user_id, userSession.user_team_id]);
+    }, [history, userIsAuthenticated, userSession.user_has_team, userSession.user_id, userSession.user_team_id, authorization]);
 
     function handleLogout() {
         localStorage.clear();
@@ -58,6 +61,7 @@ export default function JoiningSolicitationsReview() {
             await api.delete(`team_joining_solicitations/${id}`, {
                 headers: {
                     user_id: userSession.user_id,
+                    authorization
                 }
             });
 
@@ -72,7 +76,8 @@ export default function JoiningSolicitationsReview() {
             await api.post('team_joinings', null, {
                 headers: {
                     new_member_id: solicitation.user._id,
-                    team_id: solicitation.team
+                    team_id: solicitation.team,
+                    authorization
                 }
             });
 

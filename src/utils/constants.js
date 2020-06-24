@@ -31,7 +31,7 @@ export const clientRegisterInitialValues = {
 };
 
 export const loginInitialValues = {
-    "login": "",
+    "email": "",
     "password": "",
 };
 
@@ -43,8 +43,6 @@ export const newProjectInitialValues = {
 export const newOfferInitialValues = {
     "description": "",
     "price": "",
-    "start_date": "",
-    "finish_date": "",
 };
 
 export const teamInfoInitialValues = {

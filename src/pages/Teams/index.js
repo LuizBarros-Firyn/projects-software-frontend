@@ -11,6 +11,7 @@ export default function Teams() {
     const [teams, setTeams] = useState([]);
     const userSession = JSON.parse(localStorage.getItem('userSession'));
     const userIsAuthenticated = localStorage.getItem('userIsAuthenticated');
+    const authorization = localStorage.getItem('authorization');
 
     const history = useHistory();
 
@@ -25,7 +26,7 @@ export default function Teams() {
         api.get('teams').then(response => {
             setTeams(response.data);
         }); 
-    }, [userSession.user_has_team, userIsAuthenticated, history]);
+    }, [userSession.user_has_team, userIsAuthenticated, history, authorization]);
 
     function handleLogout() {
         localStorage.clear();

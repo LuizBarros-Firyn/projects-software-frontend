@@ -14,6 +14,7 @@ export default function ClientProfileSettings() {
     const [photo, setPhoto] = useState(null);
     const userSession = JSON.parse(localStorage.getItem('userSession'));
     const userIsAuthenticated = localStorage.getItem('userIsAuthenticated');
+    const authorization = localStorage.getItem('authorization');
 
     const history = useHistory();
 
@@ -23,10 +24,14 @@ export default function ClientProfileSettings() {
             history.push('/login');
         }
 
-        api.get(`users/${userSession.user_id}`).then(response => {
+        api.get(`users/${userSession.user_id}`, {
+            headers: {
+                authorization
+            }
+        }).then(response => {
             setUser(response.data);
         });
-    }, [userIsAuthenticated, userSession.user_id, history, userSession.user_is_freelancer]);
+    }, [userIsAuthenticated, userSession.user_id, history, userSession.user_is_freelancer, authorization]);
 
     const preview = useMemo(() => {
         return photo ? URL.createObjectURL(photo) : null;
@@ -53,6 +58,7 @@ export default function ClientProfileSettings() {
             await api.put('users', data, {
                 headers: {
                     user_id: userSession.user_id,
+                    authorization
                 }
             });
 

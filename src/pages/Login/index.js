@@ -22,9 +22,10 @@ export default function Login() {
         try {
             const response = await api.post('sessions', data);
 
-            if (response.data.userSession) {
+            if (response.data.userSession && response.data.authorization) {
                 localStorage.setItem('userSession', JSON.stringify(response.data.userSession));
                 localStorage.setItem('userIsAuthenticated', true);
+                localStorage.setItem('authorization', 'Bearer ' + response.data.authorization);
 
                 history.push('/main');
             } else {

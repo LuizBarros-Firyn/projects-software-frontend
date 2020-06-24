@@ -8,7 +8,6 @@
 .gamification-container header {
     display: flex;
     align-items: center;
-    margin-bottom: 180px;
 }
 
 .gamification-container header .welcome-group {
@@ -29,10 +28,6 @@
     background: #e02041;
 }
 
-.gamification-container header a + a {
-    margin-left: 15px;
-}
-
 .gamification-container header button {
     height: 60px;
     width: 60px;
@@ -47,69 +42,86 @@
     border-color: #e02041;
 }
 
-.gamification-container .sections-container {
-    width: 100%;
+.gamification-container h1 {
     margin-top: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin-bottom: 24px;
 }
 
-.gamification-container .sections-container section.info-elements {
-    width: 100%;
+.gamification-container ul {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 24px;
+    list-style: none;
+}
+
+.gamification-container ul li {
+    background: #FFF;
+    padding: 24px;
+    border-radius: 8px;
+    position: relative;
+}
+.gamification-container ul li .content {
     display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+.gamification-container ul li .content .texts {
+    display: flex;
     flex-direction: column;
-    text-align: justify;
-    color: #000;
-    margin-right: 20px;
 }
 
-.gamification-container .sections-container section.info-elements div.logo-style {
-    width: 100%;
+.gamification-container ul li .content .texts header {
     display: flex;
     align-items: center;
-    margin-bottom: 60px;
 }
 
-.gamification-container .sections-container section.info-elements div.logo-style strong {
-    font-weight: 700;
-    font-style: italic;
-    font-size: 80px;
-    letter-spacing: 10px;
-    margin-right: 10px;
+.gamification-container ul li .content .texts header svg {
+    margin-top: 15px;
+    margin-left: 10px;
 }
 
-.gamification-container .sections-container section.info-elements strong {
-    width: 100%;
-    font-size: 40px;
-    font-weight: bold;
+.gamification-container ul li .content .texts header svg.unchecked {
+    opacity: 30%;
 }
 
-.gamification-container .sections-container section.info-elements p {
-    margin-top: 50px;
-    max-width: 600px;
-    font-weight: 400;
-    margin-right: auto;
+.gamification-container ul li .content .texts p {
+    font-size: 18px;
+    margin-top: auto;
+}
+
+.gamification-container ul li .content img {
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+}
+
+.gamification-container ul li button:disabled {
+    opacity: 60%
+}
+
+.gamification-container ul li strong {
+    display: block;
+    margin-top: 16px;
+    color: #41414d;
     font-size: 20px;
+}
+
+.gamification-container ul li p {
     color: #737380;
-    line-height: 32px;
+    line-height: 21px;
+    margin-top: 12px;
 }
 
-.gamification-container .sections-container .info-elements .options {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.gamification-container .sections-container .info-elements .options a {
-    width: 260px;
+.gamification-container ul li button {
+    margin-top: 22px;
     background-color: #e02041;
 }
 
-.gamification-container .sections-container img {
-    width: 60%;
-    height: 60%;
+.gamification-container ul li.achieved .content .texts header svg {
+    width: 30px;
+    height: 30px;
+    color: #e02041;
+}
+
+.gamification-container ul li.not-achieved img {
+    opacity: 20%;
 }

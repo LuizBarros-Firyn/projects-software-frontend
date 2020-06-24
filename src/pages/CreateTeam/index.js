@@ -13,6 +13,7 @@ import './styles.css'
 export default function CreateTeam() {
     var userSession = JSON.parse(localStorage.getItem('userSession'));
     const userIsAuthenticated = localStorage.getItem('userIsAuthenticated');
+    const authorization = localStorage.getItem('authorization');
 
     const history = useHistory();
 
@@ -27,8 +28,6 @@ export default function CreateTeam() {
     }, [history, userIsAuthenticated, userSession.user_is_freelancer]);
     
     async function handleCreateTeam(values) {
-
-
         const data = {
             title: values.title,
             description: values.description,
@@ -38,7 +37,8 @@ export default function CreateTeam() {
         try {
             await api.post('teams', data, {
                 headers: {
-                    user_id: userSession.user_id
+                    user_id: userSession.user_id,
+                    authorization
                 }
             }).then(async response => {
                 userSession.user_has_team = true;
@@ -47,6 +47,7 @@ export default function CreateTeam() {
             });
 
             alert('Equipe cadastrada com sucesso!');
+            
             history.push('/main');
         } catch (error) {
             alert('Erro ao cadastrar sua equipe, tente novamente mais tarde!');

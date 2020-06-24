@@ -13,6 +13,7 @@ import './styles.css'
 export default function NewProject() {
     const userSession = JSON.parse(localStorage.getItem('userSession'));
     const userIsAuthenticated = localStorage.getItem('userIsAuthenticated');
+    const authorization = localStorage.getItem('authorization');
 
     const history = useHistory();
 
@@ -32,7 +33,8 @@ export default function NewProject() {
         try {
             await api.post('projects', data, {
                 headers: {
-                    user_id: userSession.user_id
+                    user_id: userSession.user_id,
+                    authorization
                 }
             });
 

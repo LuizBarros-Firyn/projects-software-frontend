@@ -12,6 +12,7 @@ export default function Team() {
     const [teamTitle, setTeam] = useState('');
     const userSession = JSON.parse(localStorage.getItem('userSession'));
     const userIsAuthenticated = JSON.parse(localStorage.getItem('userIsAuthenticated'));
+    const authorization = localStorage.getItem('authorization');
 
     const history = useHistory();
 
@@ -21,14 +22,22 @@ export default function Team() {
             history.push('/login');
         }
     
-        api.get(`team_messages/${userSession.user_team_id}`).then(response => {
+        api.get(`team_messages/${userSession.user_team_id}`, {
+            headers: {
+                authorization
+            }
+        }).then(response => {
             setTeamMessages(response.data);
         });
 
-        api.get(`teams/${userSession.user_team_id}`).then(response => {
+        api.get(`teams/${userSession.user_team_id}`, {
+            headers: {
+                authorization
+            }
+        }).then(response => {
             setTeam(response.data.title);
         });
-    }, [history, userIsAuthenticated, userSession.user_has_team, userSession.user_team_id]);
+    }, [history, userIsAuthenticated, userSession.user_has_team, userSession.user_team_id, authorization]);
 
     async function handleNewMessage() {
         if (newMessage.length > 400) {
@@ -49,7 +58,8 @@ export default function Team() {
             await api.post('team_messages', data, {
                 headers: {
                     sender_id: userSession.user_id,
-                    team_id: userSession.user_team_id
+                    team_id: userSession.user_team_id,
+                    authorization
                 }
             }).then(response => {
                 setTeamMessages([...teamMessages, response.data]);

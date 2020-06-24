@@ -11,6 +11,7 @@ export default function OngoingProjects() {
     const [projects, setProjects] = useState([]);
     const userSession = JSON.parse(localStorage.getItem('userSession'));
     const userIsAuthenticated = localStorage.getItem('userIsAuthenticated');
+    const authorization = localStorage.getItem('authorization');
 
     const history = useHistory();
 
@@ -23,17 +24,19 @@ export default function OngoingProjects() {
         api.get('ongoing_projects', {
             headers: userSession.user_is_freelancer ? 
                 {
-                    team_id: userSession.user_team_id
+                    team_id: userSession.user_team_id,
+                    authorization
                 }
                 :
                 {
-                    user_id: userSession.user_id
+                    user_id: userSession.user_id,
+                    authorization
                 }
             }
         ).then(response => {
             setProjects(response.data);
         });
-    }, [history, userIsAuthenticated, userSession.user_is_freelancer, userSession.user_id, userSession.user_team_id]);
+    }, [history, userIsAuthenticated, userSession.user_is_freelancer, userSession.user_id, userSession.user_team_id, authorization]);
 
     function handleLogout() {
         localStorage.clear();

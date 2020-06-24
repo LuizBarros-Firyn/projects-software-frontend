@@ -13,6 +13,7 @@ export default function Profile(props) {
     const [newComment, setNewComment] = useState('');
     const userSession = JSON.parse(localStorage.getItem('userSession'));
     const userIsAuthenticated = localStorage.getItem('userIsAuthenticated');
+    const authorization = localStorage.getItem('authorization');
 
     const history = useHistory();
 
@@ -22,18 +23,23 @@ export default function Profile(props) {
             history.push('/login');
         }
 
-        api.get(`users/${props.match.params.user_id}`).then(response => {
+        api.get(`users/${props.match.params.user_id}`, {
+            headers: {
+                authorization
+            }
+        }).then(response => {
             setProfileData(response.data);
         });
 
         api.get('profile_comments', {
             headers:{
-                    profile_id: props.match.params.user_id
+                    profile_id: props.match.params.user_id,
+                    authorization
             }            
         }).then(response => {
             setProfileComments(response.data);
         });
-    }, [userIsAuthenticated, history, props.match.params.user_id]);
+    }, [userIsAuthenticated, history, props.match.params.user_id, authorization]);
 
     function handleLogout() {
         localStorage.clear();
@@ -55,7 +61,8 @@ export default function Profile(props) {
             await api.post('profile_comments', data, {
                 headers: {
                     maker_id: userSession.user_id,
-                    profile_id: props.match.params.user_id
+                    profile_id: props.match.params.user_id,
+                    authorization
                 }
             }).then(response => {
                 setProfileComments([...profileComments, response.data]);
@@ -84,6 +91,9 @@ export default function Profile(props) {
                     <FiTerminal size={40} color="#e02041" />
                     <span>Bem vindo, {userSession.user_name}</span>
                 </div>
+                {userSession.user_id === props.match.params.user_id &&
+                    <h2>Meu saldo: {profileData && profileData.wallet_balance}</h2>
+                }
                 {userSession.user_id === props.match.params.user_id &&
                     <Link className="button" to={ userSession.user_is_freelancer ? "/freelancer_profile_settings" :"/client_profile_settings"}>
                         Editar Perfil
