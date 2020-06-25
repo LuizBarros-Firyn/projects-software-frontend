@@ -91,7 +91,7 @@ export default function Profile(props) {
                     <FiTerminal size={40} color="#e02041" />
                     <span>Bem vindo, {userSession.user_name}</span>
                 </div>
-                {userSession.user_id === props.match.params.user_id &&
+                {userSession.user_id === props.match.params.user_id && userSession.user_is_freelancer &&
                     <h2>Meu saldo: {profileData && profileData.wallet_balance}</h2>
                 }
                 {userSession.user_id === props.match.params.user_id &&

@@ -30,13 +30,15 @@ export default function Team() {
             setTeamMessages(response.data);
         });
 
-        api.get(`teams/${userSession.user_team_id}`, {
+        setInterval(() => {
+            api.get(`teams/${userSession.user_team_id}`, {
             headers: {
                 authorization
             }
-        }).then(response => {
-            setTeam(response.data.title);
-        });
+            }).then(response => {
+                setTeam(response.data.title);
+            });
+        }, 5000);
     }, [history, userIsAuthenticated, userSession.user_has_team, userSession.user_team_id, authorization]);
 
     async function handleNewMessage() {

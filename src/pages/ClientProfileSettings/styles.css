@@ -132,6 +132,9 @@
     width: 200px;
     height: 200px;
     border: 0;
+    border-radius: 50%;
+    padding: 3px;
+    border: 3px ridge #e02041;
 }
 
 .client-profile-settings-container .content .content-elements form .img label#photo.has-thumbnail svg {
