@@ -79,12 +79,16 @@ export default function OngoingProjects() {
                         {userSession.user_is_freelancer ?
                             <Fragment>
                                 <strong>CLIENTE:</strong>
-                                <p>{project.user.name}</p>
+                                <Link className="profile-ref" to={`/profile/${project.user._id}`}>
+                                    {project.user.name}
+                                </Link>
                             </Fragment>
                         :
                             <Fragment>
                                 <strong>EQUIPE:</strong>
-                                <p>{project.team.title}</p>
+                                <Link className="profile-ref" to={`/team_profile/${project.team._id}`}>
+                                    {project.team.title}
+                                </Link>
                             </Fragment>
                         }   
                         <Link to="/project_development" onClick={() => sendProjectInfo(project._id, project.title)}>

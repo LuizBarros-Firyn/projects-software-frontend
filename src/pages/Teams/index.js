@@ -23,7 +23,11 @@ export default function Teams() {
             history.push('/login');
         }
 
-        api.get('teams').then(response => {
+        api.get('teams', {
+            headers: {
+                authorization
+            }
+        }).then(response => {
             setTeams(response.data);
         }); 
     }, [userSession.user_has_team, userIsAuthenticated, history, authorization]);

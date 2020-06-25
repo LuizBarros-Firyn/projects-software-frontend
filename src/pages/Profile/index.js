@@ -92,7 +92,7 @@ export default function Profile(props) {
                     <span>Bem vindo, {userSession.user_name}</span>
                 </div>
                 {userSession.user_id === props.match.params.user_id && userSession.user_is_freelancer &&
-                    <h2>Meu saldo: {profileData && profileData.wallet_balance}</h2>
+                    <h2>Meu saldo: {profileData && Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(profileData.wallet_balance)}</h2>
                 }
                 {userSession.user_id === props.match.params.user_id &&
                     <Link className="button" to={ userSession.user_is_freelancer ? "/freelancer_profile_settings" :"/client_profile_settings"}>

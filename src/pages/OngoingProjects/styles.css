@@ -116,6 +116,10 @@
     width: fit-content;
 }
 
+.ongoing-projects-container ul li a.profile-ref {
+    font-size: 18px;
+}
+
 .ongoing-projects-container ul li a h3 {
     margin-left: 15px;
     font-size: 20px;

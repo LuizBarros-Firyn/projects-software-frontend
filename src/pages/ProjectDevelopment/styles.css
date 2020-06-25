@@ -100,6 +100,10 @@
     position: relative;
 }
 
+.project-development-container ul li .profile-ref {
+    text-decoration: none;
+}
+
 .project-development-container ul li .session-user-messages {
     padding: 12px;
     background-color: rgba(47, 173, 116, 0.2);

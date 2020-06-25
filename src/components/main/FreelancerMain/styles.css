@@ -177,6 +177,13 @@
     color: #41414d;
 }
 
+.freelancer-main-container ul li strong.client-up {
+    display: block;
+    margin-top: 16px;
+    color: #41414d;
+    margin-bottom: 10px;
+}
+
 .freelancer-main-container ul li p {
     color: #737380;
     line-height: 21px;
@@ -193,7 +200,14 @@
     margin-top: 32px;
 }
 
-.freelancer-main-container ul li a {
+.freelancer-main-container ul li a.client-ref {
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #e02041;
+}
+
+.freelancer-main-container ul li a.button {
     margin-top: 20px;
     background-color: #e02041;
 }

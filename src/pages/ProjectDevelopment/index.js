@@ -42,7 +42,7 @@ export default function ProjectDevelopment() {
                 }).then(response => {
                     setProjectMessages(response.data);
                 });
-            }, 5000)
+            }, 2000)
         }
 
         fetchPageData();
@@ -178,14 +178,18 @@ export default function ProjectDevelopment() {
                                     projectMessage.sender === userSession.user_team_id ?
                                         <Fragment>
                                             <div className="session-user-messages">
-                                                <strong>{project.team.title}</strong>
+                                                <Link className="profile-ref" to={`/team_profile/${project.team._id}`}>
+                                                    <strong>{project.team.title}</strong>
+                                                </Link>
                                                 <p>{projectMessage.message}</p>
                                             </div>
                                         </Fragment>
                                     :
                                         <Fragment>
                                             <div className="interlocutor-messages">
-                                                <strong>{project.user.name}</strong>
+                                                <Link className="profile-ref" to={`profile/${project.user._id}`}>
+                                                    <strong>{project.user.name}</strong>
+                                                </Link>
                                                 <p>{projectMessage.message}</p>
                                             </div>
                                         </Fragment>
@@ -193,14 +197,18 @@ export default function ProjectDevelopment() {
                                     projectMessage.sender === userSession.user_id ?
                                         <Fragment>
                                             <div className="session-user-messages">
-                                                <strong>{project.user.name}</strong>
+                                                <Link className="profile-ref" to={`profile/${project.user._id}`}>
+                                                    <strong>{project.user.name}</strong>
+                                                </Link>
                                                 <p>{projectMessage.message}</p>
                                             </div>
                                         </Fragment>
                                         :
                                         <Fragment>
                                             <div className="interlocutor-messages">
-                                                <strong>{project.team.title}</strong>
+                                                <Link className="profile-ref" to={`/team_profile/${project.team._id}`}>
+                                                    <strong>{project.team.title}</strong>
+                                                </Link>
                                                 <p>{projectMessage.message}</p>
                                             </div>
                                         </Fragment>            

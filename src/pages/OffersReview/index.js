@@ -116,7 +116,7 @@ export default function OffersReview() {
                         <strong>DATA DE ENTREGA:</strong>
                         <p>{formatDate(offer.finish_date)}</p>
                         <strong>PREÇO:</strong>
-                        <p>R$: {offer.price}</p>
+                        <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(offer.price)}</p>
                         <div className="choice-buttons">
                             <button className="button" onClick={() => handleDeleteOffer(offer._id)} style={{backgroundColor: "#e02041"}}>
                                 Recusar

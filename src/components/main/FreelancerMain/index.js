@@ -127,6 +127,10 @@ export default function FreelancerMain() {
             <ul>
                 {projects.map(project => (
                     <li key={project._id}>
+                        <strong className="client-up">CLIENTE:</strong>
+                        <Link className="client-ref" to={`/profile/${project.user._id}`}>
+                            {project.user.name}
+                        </Link>
                         <strong>TITULO:</strong>
                         <p>{project.title}</p>
                         <strong>DESCRIÇÃO:</strong>

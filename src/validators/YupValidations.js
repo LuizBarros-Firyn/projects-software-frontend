@@ -70,7 +70,7 @@ export function newProjectValidation() {
 export function newOfferValidation() {
     const schema = Yup.object().shape({
         description: Yup.string().min(10, "Dê mais detalhes sobre sua oferta").max(300, "Seja mais objetivo na descrição de sua oferta").required("Descrição Obrigatória"),
-        price: Yup.number("Preço inválido").min(30, "O valor mínimo é 30").max(1000000, "Preço inválido").required("Preço obrigatório").typeError('Troque a virgula por ponto'),
+        price: Yup.number("Preço inválido").min(40, "O valor mínimo é 40").max(1000000, "Preço inválido").required("Preço obrigatório").typeError('Troque a virgula por ponto'),
     });
 
     return schema;
