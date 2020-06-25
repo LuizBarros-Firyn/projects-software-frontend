@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'
+import api from '../../services/api';
 
 import { FiTerminal } from 'react-icons/fi';
 import officeWoman from '../../assets/woman_working.svg'
@@ -8,6 +9,11 @@ import { FaFacebookSquare, FaGithub, FaLinkedin } from 'react-icons/fa';
 import './styles.css';
 
 export default function LandingPage() {
+
+    useEffect(() => {
+        api.get(''); // this helps heroku dynos to wake up faster
+}, []);
+
     return (
         <div className="landing-page-container">
             <header>
