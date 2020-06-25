@@ -22,23 +22,23 @@ export default function Team() {
             history.push('/login');
         }
     
-        api.get(`team_messages/${userSession.user_team_id}`, {
+        setInterval(() => {
+            api.get(`team_messages/${userSession.user_team_id}`, {
+                headers: {
+                    authorization
+                }
+            }).then(response => {
+                setTeamMessages(response.data);
+            });
+        }, 2000);
+
+        api.get(`teams/${userSession.user_team_id}`, {
             headers: {
                 authorization
             }
         }).then(response => {
-            setTeamMessages(response.data);
+            setTeam(response.data.title);
         });
-
-        setInterval(() => {
-            api.get(`teams/${userSession.user_team_id}`, {
-            headers: {
-                authorization
-            }
-            }).then(response => {
-                setTeam(response.data.title);
-            });
-        }, 2000);
     }, [history, userIsAuthenticated, userSession.user_has_team, userSession.user_team_id, authorization]);
 
     async function handleNewMessage() {
