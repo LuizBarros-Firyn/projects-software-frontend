@@ -50,6 +50,7 @@ export default function Login() {
                     <div className="content">
                         <h1>Faça seu login!</h1>
                         <FiUser size={300} color="#e02041" />
+                        <Link className={"password-recovery"} to="/password_recovery">Esqueceu sua senha?</Link>
                         <Formik initialValues={initialValues} onSubmit={handleLogin} validationSchema={loginValidation}>
                             { props => {
                                 const {

@@ -66,6 +66,11 @@
     font-weight: 500;
 }
 
+.login-container section.info section.info-elements .content a.password-recovery {
+    text-decoration: none;
+    font-size: 18px;
+}
+
 .login-container section.info section.info-elements .content form {
     width: 100%;
 }

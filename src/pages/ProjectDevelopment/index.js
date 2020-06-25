@@ -108,7 +108,7 @@ export default function ProjectDevelopment() {
 
     async function handleRefuse() {
         try {
-            await api.delete(`project_approval_state/${project._id}`, {}, {
+            await api.delete(`project_approval_state/${project._id}`, {
                 headers: {authorization}
             }).then(response => {
                 setProject(response.data);
