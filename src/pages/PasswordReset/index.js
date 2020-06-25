@@ -3,43 +3,42 @@ import api from '../../services/api';
 import { Link, useHistory } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-import { loginValidation } from '../../validators/YupValidations';
-import { loginInitialValues as initialValues } from '../../utils/constants'
+import { ResetPasswordValidation } from '../../validators/YupValidations';
+import { resetPasswordInitialValues as initialValues } from '../../utils/constants'
 
 import { FiArrowLeft, FiUser } from 'react-icons/fi';
 
 import './styles.css';
 
-export default function Login() {
+export default function PasswordReset() {
     const history = useHistory();
 
-    async function handleLogin(values){
+    async function handlePasswordReset(values){
         const data = {
             email: values.email,
-            password: values.password
+            token: values.token,
+            password: values.new_password
         };
 
         try {
-            const response = await api.post('sessions', data);
+            await api.put('reset_password', data).then(async response => {
+                if (response.data.error) {
+                    alert(`${response.data.error}`);
+                    return
+                }
 
-            if (response.data.userSession && response.data.authorization) {
-                localStorage.setItem('userSession', JSON.stringify(response.data.userSession));
-                localStorage.setItem('userIsAuthenticated', true);
-                localStorage.setItem('authorization', 'Bearer ' + response.data.authorization);
-
-                history.push('/main');
-            } else {
-                alert(`${response.data.fail_message}`);
-            }
+                alert('Senha resetada com sucesso!');
+                history.push('/login')
+            });     
         } catch (error) {
-            alert('Erro no login, tente novamente.');
+            alert('Erro ao resetar senha, tente novamente.');
         }
     }
 
     return (
-        <div className="login-container">
+        <div className="password-recovery-container">
             <section className="info">
-            <header>
+                <header>
                     <Link to="/">
                         <FiArrowLeft size={30} color="#e02041" />
                         <text>Voltar</text>
@@ -48,9 +47,9 @@ export default function Login() {
             
                 <section className="info-elements">
                     <div className="content">
-                        <h1>Faça seu login!</h1>
+                        <h1>Digite seu e-mail</h1>
                         <FiUser size={300} color="#e02041" />
-                        <Formik initialValues={initialValues} onSubmit={handleLogin} validationSchema={loginValidation}>
+                        <Formik initialValues={initialValues} onSubmit={handlePasswordReset} validationSchema={ResetPasswordValidation}>
                             { props => {
                                 const {
                                     touched, errors, isSubmitting
@@ -62,12 +61,15 @@ export default function Login() {
                                         <div className="error-messages">
                                             <ErrorMessage component="span" name="email" />
                                         </div>
-                                        <Field placeholder="Senha" name="password" type="password" className={errors.password && touched.password && "failed-field"} />
+                                        <Field placeholder="Token de recuperação" name="token" className={errors.token && touched.token && "failed-field"} />
                                         <div className="error-messages">
-                                            <ErrorMessage component="span" name="password" />
+                                            <ErrorMessage component="span" name="token" />
                                         </div>
-                                        <Link className={"password-recovery"} to="/password_recovery">Esqueceu sua senha?</Link>
-                                        <button className="button" type="submit" disabled={isSubmitting}>Login</button>
+                                        <Field placeholder="Nova senha" name="new_password" type="password" className={errors.new_password && touched.new_password && "failed-field"} />
+                                        <div className="error-messages">
+                                            <ErrorMessage component="span" name="new_password" />
+                                        </div>
+                                        <button className="button" type="submit" disabled={isSubmitting}>Recuperar senha</button>
                                     </Form>
                                 )
                             }}

@@ -1,4 +1,4 @@
-.login-container {
+.password-reset-container {
     width: 100%;
     height: 100vh;
     margin: 0 auto;
@@ -8,25 +8,25 @@
     justify-content: center;
 }
 
-.login-container section {
+.password-reset-container section {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login-container section.info {
+.password-reset-container section.info {
     display: inline-block;
     width: 100%;
     margin: 32px auto;
 }
 
-.login-container section.info header {
+.password-reset-container section.info header {
     width: 100%;
     padding: 30px;
 }
 
-.login-container section.info header a {
+.password-reset-container section.info header a {
     color: #000;
     text-decoration: none;
     font-weight: 400;
@@ -38,15 +38,15 @@
     align-items: center;
 }
 
-.login-container section.info header a text {
+.password-reset-container section.info header a text {
     margin-left: 10px;
 }
 
-.login-container section.info header a:hover {
+.password-reset-container section.info header a:hover {
     opacity: 0.4;
 }
 
-.login-container section.info section.info-elements .content {
+.password-reset-container section.info section.info-elements .content {
     width: 100%;
     max-width: 600px;
     padding: 20px 45px;
@@ -60,13 +60,13 @@
     flex-direction: column;
 }
 
-.login-container section.info section.info-elements .content h1 {
+.password-reset-container section.info section.info-elements .content h1 {
     margin-bottom: 14px;
     font-size: 35px;
     font-weight: 500;
 }
 
-.login-container section.info section.info-elements .content form a.password-recovery {
+.password-reset-container section.info section.info-elements .content form a.password-recovery {
     width: 100%;
     display: flex;
     align-self: center;
@@ -74,33 +74,33 @@
     text-decoration: none;
 }
 
-.login-container section.info section.info-elements .content form {
+.password-reset-container section.info section.info-elements .content form {
     width: 100%;
 }
 
-.login-container section.info section.info-elements .content form input {
+.password-reset-container section.info section.info-elements .content form input {
     margin-top: 16px;
     padding: 0 24;
 }
 
-.login-container section.info section.info-elements .content form input.failed-field {
+.password-reset-container section.info section.info-elements .content form input.failed-field {
     border-color: red;
 }
 
-.login-container section.info section.info-elements .content form span {
+.password-reset-container section.info section.info-elements .content form span {
     margin-bottom: 8px;
     padding: 0 10px;
 }
 
 
-.login-container section.info section.info-elements .content form .error-messages {
+.password-reset-container section.info section.info-elements .content form .error-messages {
     width: 100%;
     text-align: center;
     color: red;
     margin-top: 8px;
 }
 
-.login-container section.info section.info-elements .content form .button {
+.password-reset-container section.info section.info-elements .content form .button {
     margin-top: 25px;
     background-color: #e02041;
 }

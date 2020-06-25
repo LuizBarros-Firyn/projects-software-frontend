@@ -27,6 +27,8 @@ import ClientProfileSettings from './pages/ClientProfileSettings';
 import OnboardingSteps from './pages/OnboardingSteps';
 import GamificationIntroduction from './pages/GamificationIntroduction';
 import Gamification from './pages/Gamification';
+import PasswordRecovery from './pages/PasswordRecovery';
+import PasswordReset from './pages/PasswordReset';
 
 export default function Routes() {
     return(
@@ -58,6 +60,8 @@ export default function Routes() {
                 <Route path="/onboarding_steps" component={OnboardingSteps} />
                 <Route path="/gamification_introduction" component={GamificationIntroduction} />
                 <Route path="/gamification" component={Gamification} />
+                <Route path="/password_recovery" component={PasswordRecovery} />
+                <Route path="/password_reset" component={PasswordReset} />
             </Switch>
         </BrowserRouter>
     );

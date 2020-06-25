@@ -40,6 +40,24 @@ export function loginValidation() {
     return schema;
 };
 
+export function passwordRecoveryValidation() {
+    const schema = Yup.object().shape({
+        email: Yup.string().min(6, "O e-mail precisa ter mais de 6 carácteres").max(90, "E-mail inválido").email("E-mail inválido").required("O e-mail é obrigatório"),
+    });
+
+    return schema;
+};
+
+export function ResetPasswordValidation() {
+    const schema = Yup.object().shape({
+        email: Yup.string().min(6, "O e-mail precisa ter mais de 6 carácteres").max(90, "E-mail inválido").email("E-mail inválido").required("O e-mail é obrigatório"),
+        token: Yup.string().min(5, "Tpken inválido").max(120, "Token inválido").required("Token obrigatório"),
+        new_password: Yup.string().min(5, "Senha inválida").max(30, "Senha inválida").required("Senha obrigatória")
+    });
+
+    return schema;
+};
+
 export function newProjectValidation() {
     const schema = Yup.object().shape({
         title: Yup.string().min(5, "Titulo muito curto").max(45, "Seja mais específico").required("Titulo obrigatório"),

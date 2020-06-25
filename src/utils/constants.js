@@ -35,6 +35,16 @@ export const loginInitialValues = {
     "password": "",
 };
 
+export const passwordRecoveryInitialValues = {
+    "email": "",
+};
+
+export const resetPasswordInitialValues = {
+    "email": "",
+    "token": "",
+    "new_password": ""
+};
+
 export const newProjectInitialValues = {
     "title": "",
     "description": "",
