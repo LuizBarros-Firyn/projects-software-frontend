@@ -4,7 +4,7 @@ import api from '../../services/api';
 
 import { FiTerminal } from 'react-icons/fi';
 import officeWoman from '../../assets/woman_working.svg'
-import { FaFacebookSquare, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 import './styles.css';
 
