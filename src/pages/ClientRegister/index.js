@@ -34,10 +34,11 @@ export default function ClientRegister() {
                     return;
                 }
 
-                const userSession = { user_id: response.data._id, user_name: response.data.name, user_is_freelancer: response.data.is_freelancer }
+                const userSession = { user_id: response.data.user._id, user_name: response.data.user.name, user_is_freelancer: response.data.user.is_freelancer }
     
                 localStorage.setItem('userSession', JSON.stringify(userSession));
                 localStorage.setItem('userIsAuthenticated', true);
+                localStorage.setItem('authorization', 'Bearer ' + response.data.authorization);
                 
                 history.push('/onboarding_steps'); 
             });
