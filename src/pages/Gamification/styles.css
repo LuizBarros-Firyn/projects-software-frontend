@@ -80,7 +80,7 @@
 }
 
 .gamification-container ul li .content .texts header svg.unchecked {
-    opacity: 30%;
+    opacity: 30.3;
 }
 
 .gamification-container ul li .content .texts p {
@@ -95,7 +95,7 @@
 }
 
 .gamification-container ul li button:disabled {
-    opacity: 60%
+    opacity: 0.6;
 }
 
 .gamification-container ul li strong {
@@ -123,5 +123,5 @@
 }
 
 .gamification-container ul li.not-achieved img {
-    opacity: 20%;
+    opacity: 0.2;
 }
