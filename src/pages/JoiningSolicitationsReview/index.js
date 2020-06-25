@@ -145,31 +145,6 @@ export default function JoiningSolicitationsReview() {
                         </div>
                     </li>
                 ))}
-                {solicitations.map(solicitation => (
-                    <li key={solicitation._id}>
-                        <div className="img">
-                            <img src={Avatar} alt="freelancer" />
-                        </div>
-                        <strong>NOME DO FREELANCER:</strong>
-                        <Link className="name-ref" to={`/profile/${solicitation.user._id}`}>
-                            {solicitation.user.name}
-                        </Link>
-                        <strong>IDADE DO FREELANCER:</strong>
-                        <p>{solicitation.user.age}</p>
-                        <strong>PRINCIPAIS TÉCNOLOGIAS:</strong>
-                        <p className="techs-field">{renderFreelancerTechs(solicitation.user.techs)}</p>
-                        <strong>MENSAGEM DE SOLICITAÇÃO:</strong>
-                        <p>{solicitation.message}</p>
-                        <div className="choice-buttons">
-                            <button className="button" onClick={() => handleDeleteSolicitation(solicitation._id)} style={{backgroundColor: "#e02041"}}>
-                                Recusar
-                            </button>
-                            <button className="button" onClick={() => handleAcceptSolicitation(solicitation)} style={{backgroundColor: "#e02041"}}>
-                                Aceitar
-                            </button>
-                        </div>
-                    </li>
-                ))}
             </ul>
         </div>
     );
