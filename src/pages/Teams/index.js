@@ -16,8 +16,6 @@ export default function Teams() {
     const history = useHistory();
 
     useEffect(() => {
-        console.log(userSession.user_has_team);
-        console.log(userIsAuthenticated);
         if (userSession.user_has_team || !userIsAuthenticated) {
             alert('Acesso não autorizado.');
             history.push('/login');
@@ -29,6 +27,7 @@ export default function Teams() {
             }
         }).then(response => {
             setTeams(response.data);
+            console.log('aaaaa');
         }); 
     }, [userSession.user_has_team, userIsAuthenticated, history, authorization]);
 
