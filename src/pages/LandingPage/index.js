@@ -49,9 +49,6 @@ export default function LandingPage() {
                     <text className="company-email">luizbarros.incode@gmail.com</text>
                     <text className="company-phone">(43) 99999-9999</text>
                     <div className="social-media">
-                        <a href="https://www.facebook.com/luiz.dsfiry">
-                            <FaFacebookSquare size={30} color="#e02041"/>
-                        </a>
                         <a href="https://github.com/LuizBarros-Firyn">
                             <FaGithub size={30} color="#e02041"/>
                         </a>
